@@ -18,7 +18,7 @@ const mockups = [
 
 export default function HeroSection() {
   return (
-    <section className="pt-32 pb-24 px-6">
+    <section className="pt-32 pb-10 px-6">
       <div className="max-w-6xl mx-auto">
         <div className="flex flex-col items-center text-center gap-8">
           <h1 className="text-5xl md:text-7xl font-black leading-tight tracking-tight">
@@ -41,7 +41,7 @@ export default function HeroSection() {
           </div>
 
           {/* スワイプ可能なスクリーンショットカルーセル */}
-          <div className="mt-4 w-full overflow-x-auto scrollbar-hide">
+          <div className="w-full overflow-x-auto scrollbar-hide">
             <div
               className="flex gap-4 px-6"
               style={{ scrollSnapType: "x mandatory", WebkitOverflowScrolling: "touch" }}
