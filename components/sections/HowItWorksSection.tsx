@@ -23,7 +23,9 @@ export default function HowItWorksSection() {
     <section className="py-24 px-6 bg-bg-card">
       <div className="max-w-6xl mx-auto">
         <h2 className="text-4xl md:text-5xl font-black text-center mb-16">
-          使い方は、シンプル。
+          使い方は、
+          <br />
+          シンプル。
         </h2>
         <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
           {steps.map((step) => (
