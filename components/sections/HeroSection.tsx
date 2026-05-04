@@ -31,7 +31,7 @@ export default function HeroSection() {
           <p className="text-text-sub text-lg md:text-xl max-w-xl leading-relaxed">
             感覚に頼ったトレーニングをやめろ。
             <br />
-            Auxlogが前回の記録から、今日やるべき重量・セット・回数を自動で導き出す。
+            Auxlogが前回の記録から、科学的アルゴリズムで今日やるべき重量・セット・回数を自動で導き出す。
           </p>
           <div className="flex flex-col items-center gap-3">
             <CTAButton className="w-full sm:w-auto text-lg px-10 py-5" />

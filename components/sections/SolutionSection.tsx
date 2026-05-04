@@ -10,10 +10,11 @@ export default function SolutionSection() {
           ゼロにする。
         </h2>
         <p className="text-text-sub text-lg md:text-xl max-w-2xl mx-auto leading-relaxed">
-          前回の記録・疲労度・経過日数から、
+          前回の記録・疲労度・経過日数・週ボリュームを
+          <span className="text-accent font-bold">科学的アルゴリズムで分析</span>。
           <br />
           今日やるべきメニューを
-          <span className="text-accent font-bold">自動で計算</span>。
+          <span className="text-accent font-bold">自動で計算</span>する。
           <br />
           <span className="text-accent font-bold">アプリを開いた瞬間</span>
           に答えが出ている。

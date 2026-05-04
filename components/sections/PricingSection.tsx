@@ -1,10 +1,11 @@
 import CTAButton from "../CTAButton";
 
 const includedFeatures = [
-  "自動メニュー提案（無制限）",
+  "科学的アルゴリズムによる自動メニュー提案",
+  "RIR・週ボリューム管理",
+  "回復インターバル自動計算",
   "トレーニング記録（無制限）",
   "重量推移グラフ",
-  "科学的プログレッシブオーバーロード",
 ];
 
 export default function PricingSection() {
