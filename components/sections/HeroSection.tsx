@@ -1,6 +1,21 @@
 import Image from "next/image";
 import CTAButton from "../CTAButton";
 
+const mockups = [
+  {
+    src: "/screenshots/app-mockup01.jpg",
+    alt: "今日のメニュー画面",
+  },
+  {
+    src: "/screenshots/app-mockup02.jpg",
+    alt: "トレーニング記録画面",
+  },
+  {
+    src: "/screenshots/app-mockup03.jpg",
+    alt: "履歴・グラフ画面",
+  },
+];
+
 export default function HeroSection() {
   return (
     <section className="pt-32 pb-24 px-6">
@@ -24,16 +39,29 @@ export default function HeroSection() {
               30日間無料・クレジットカード不要
             </p>
           </div>
-          <div className="mt-4 w-full max-w-xs mx-auto">
-            <div className="rounded-3xl overflow-hidden border border-border-default shadow-2xl shadow-black">
-              <Image
-                src="/screenshots/app-mockup01.jpg"
-                alt="Auxlog 今日のメニュー画面"
-                width={390}
-                height={844}
-                className="w-full h-auto"
-                priority
-              />
+
+          {/* スワイプ可能なスクリーンショットカルーセル */}
+          <div className="mt-4 w-full overflow-x-auto scrollbar-hide">
+            <div
+              className="flex gap-4 px-6"
+              style={{ scrollSnapType: "x mandatory", WebkitOverflowScrolling: "touch" }}
+            >
+              {mockups.map((mockup) => (
+                <div
+                  key={mockup.src}
+                  className="flex-none w-56 md:w-64 rounded-3xl overflow-hidden border border-border-default shadow-2xl shadow-black"
+                  style={{ scrollSnapAlign: "center" }}
+                >
+                  <Image
+                    src={mockup.src}
+                    alt={mockup.alt}
+                    width={390}
+                    height={844}
+                    className="w-full h-auto"
+                    priority
+                  />
+                </div>
+              ))}
             </div>
           </div>
         </div>

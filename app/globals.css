@@ -8,6 +8,14 @@
   --font-sans: 'Inter', 'Noto Sans JP', sans-serif;
 }
 
+@utility scrollbar-hide {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+  &::-webkit-scrollbar {
+    display: none;
+  }
+}
+
 @layer base {
   * {
     box-sizing: border-box;
