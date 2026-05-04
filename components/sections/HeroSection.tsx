@@ -6,7 +6,9 @@ export default function HeroSection() {
       <div className="max-w-6xl mx-auto">
         <div className="flex flex-col items-center text-center gap-8">
           <h1 className="text-5xl md:text-7xl font-black leading-tight tracking-tight">
-            今日のトレーニングを、
+            今日やるべき
+            <br />
+            トレーニングを
             <br />
             <span className="text-[#E8FF00]">30秒</span>で決める。
           </h1>

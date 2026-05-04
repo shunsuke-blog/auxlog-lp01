@@ -3,7 +3,9 @@ export default function SolutionSection() {
     <section className="py-24 px-6 bg-[#141414]">
       <div className="max-w-6xl mx-auto text-center">
         <h2 className="text-4xl md:text-5xl font-black mb-12 leading-tight">
-          Auxlogが、考える時間を
+          Auxlogが、
+          <br />
+          考える時間を
           <br />
           ゼロにする。
         </h2>
