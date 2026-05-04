@@ -16,6 +16,12 @@ export default function Footer() {
             <Link href="/terms" className="hover:text-white transition-colors">
               利用規約
             </Link>
+            <Link
+              href="/tokushoho"
+              className="hover:text-white transition-colors"
+            >
+              特定商取引法
+            </Link>
             <a
               href="mailto:support@auxlog.com"
               className="hover:text-white transition-colors"
