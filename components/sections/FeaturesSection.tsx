@@ -1,21 +1,29 @@
+import Image from "next/image";
+
 const features = [
   {
     icon: "⚡",
     title: "開いた瞬間に今日のメニューが出る",
     description:
       "前回の記録をもとに、重量・セット数・回数を自動で提案。悩む時間はゼロ。",
+    image: "/screenshots/app-mockup01.jpg",
+    imageAlt: "今日のメニュー画面",
   },
   {
     icon: "📈",
     title: "感覚ではなく、データで伸ばす",
     description:
       "RIR（余裕度）と週ボリュームに基づいたプログレッシブオーバーロードで、確実に成長できる重量を提案。",
+    image: "/screenshots/app-mockup03.jpg",
+    imageAlt: "履歴・グラフ画面",
   },
   {
     icon: "✓",
     title: "30秒で記録完了",
     description:
       "提案値が初期値として入力済み。変更がなければそのまま保存するだけ。",
+    image: "/screenshots/app-mockup02.jpg",
+    imageAlt: "トレーニング記録画面",
   },
 ];
 
@@ -30,15 +38,28 @@ export default function FeaturesSection() {
           {features.map((feature) => (
             <div
               key={feature.title}
-              className="bg-[#141414] border border-[#222222] rounded-2xl p-8 flex flex-col gap-4"
+              className="bg-bg-card border border-border-default rounded-2xl overflow-hidden flex flex-col"
             >
-              <span className="text-3xl font-bold text-[#E8FF00]">
-                {feature.icon}
-              </span>
-              <h3 className="text-xl font-bold leading-snug">{feature.title}</h3>
-              <p className="text-[#888888] text-sm leading-relaxed">
-                {feature.description}
-              </p>
+              <div className="overflow-hidden">
+                <Image
+                  src={feature.image}
+                  alt={feature.imageAlt}
+                  width={390}
+                  height={500}
+                  className="w-full h-auto object-cover object-top"
+                />
+              </div>
+              <div className="p-8 flex flex-col gap-4">
+                <span className="text-3xl font-bold text-accent">
+                  {feature.icon}
+                </span>
+                <h3 className="text-xl font-bold leading-snug">
+                  {feature.title}
+                </h3>
+                <p className="text-text-sub text-sm leading-relaxed">
+                  {feature.description}
+                </p>
+              </div>
             </div>
           ))}
         </div>

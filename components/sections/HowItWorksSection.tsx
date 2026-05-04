@@ -20,7 +20,7 @@ const steps = [
 
 export default function HowItWorksSection() {
   return (
-    <section className="py-24 px-6 bg-[#141414]">
+    <section className="py-24 px-6 bg-bg-card">
       <div className="max-w-6xl mx-auto">
         <h2 className="text-4xl md:text-5xl font-black text-center mb-16">
           使い方は、シンプル。
@@ -28,11 +28,11 @@ export default function HowItWorksSection() {
         <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
           {steps.map((step) => (
             <div key={step.number} className="flex flex-col gap-4">
-              <span className="text-5xl font-black text-[#E8FF00]">
+              <span className="text-5xl font-black text-accent">
                 {step.number}
               </span>
               <h3 className="text-xl font-bold">{step.title}</h3>
-              <p className="text-[#888888] text-sm leading-relaxed">
+              <p className="text-text-sub text-sm leading-relaxed">
                 {step.description}
               </p>
             </div>

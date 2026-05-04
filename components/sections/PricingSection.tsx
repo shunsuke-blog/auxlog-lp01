@@ -21,16 +21,16 @@ export default function PricingSection() {
             </span>
             <div>
               <span className="text-5xl font-black">¥480</span>
-              <span className="text-[#888888] text-lg ml-2">/ 月</span>
+              <span className="text-text-sub text-lg ml-2">/ 月</span>
             </div>
-            <p className="text-[#888888] text-sm">
+            <p className="text-text-sub text-sm">
               トライアル終了後から課金開始。クレジットカード登録はトライアル終了後。
             </p>
           </div>
           <ul className="flex flex-col gap-3">
             {includedFeatures.map((feature) => (
               <li key={feature} className="flex items-center gap-3 text-sm">
-                <span className="text-[#E8FF00] font-bold">✓</span>
+                <span className="text-accent font-bold">✓</span>
                 {feature}
               </li>
             ))}
