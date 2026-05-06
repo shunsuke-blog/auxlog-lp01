@@ -4,9 +4,26 @@ import { useEffect, useState } from "react";
 
 function detectEnv(): { webview: boolean; ios: boolean } {
   const ua = navigator.userAgent;
-  const webview = /Twitter\/|Twitter for iPhone|twitterAndroid/i.test(ua);
-  const ios = /iPhone|iPad|iPod/i.test(ua);
-  return { webview, ios };
+  const isIOS = /iPhone|iPad|iPod/i.test(ua);
+  const isAndroid = /Android/i.test(ua);
+
+  if (isAndroid) {
+    // Android: X app WebView は UA に "wv" フラグを含む
+    return { webview: /twitterAndroid|\bwv\b/i.test(ua), ios: false };
+  }
+
+  if (isIOS) {
+    // iOS: 本物のSafariは window.safari が定義されている
+    // X/Instagram等のin-app browserは WKWebView を使うため window.safari が undefined
+    const isChromeIOS = /CriOS/i.test(ua);
+    const isFirefoxIOS = /FxiOS/i.test(ua);
+    // eslint-disable-next-line @typescript-eslint/no-explicit-any
+    const isRealSafari = typeof (window as any).safari !== "undefined";
+    const isInApp = !isRealSafari && !isChromeIOS && !isFirefoxIOS;
+    return { webview: isInApp, ios: true };
+  }
+
+  return { webview: false, ios: false };
 }
 
 export default function WebViewBanner() {
