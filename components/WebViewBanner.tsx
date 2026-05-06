@@ -40,9 +40,9 @@ export default function WebViewBanner() {
       <div className="w-full bg-[#1a1a1a] border-b border-[#333] px-4 py-3 text-sm text-center">
         <span className="text-white/80">Xアプリ内ではログインできません。</span>
         <span className="ml-1 text-[#E8FF00] font-semibold">
-          右下の共有ボタン →「Safariで開く」
+          右下のコンパス（⊙）ボタン
         </span>
-        <span className="text-white/80">をタップしてください。</span>
+        <span className="text-white/80">をタップしてブラウザで開いてください。</span>
       </div>
     );
   }
