@@ -1,29 +1,27 @@
-import { Shield } from "lucide-react";
-
 const features = [
   {
-    icon: "⚡",
-    title: "科学的アルゴリズムが今日のメニューを自動提案",
+    icon: "🎯",
+    title: "自分の種目だけで、次が決まる",
     description:
-      "前回の記録・疲労度・経過日数から、重量・セット数・回数を自動で計算。悩む時間はゼロ。",
+      "知らない種目は出てこない。いつもやる種目の記録から、次回の重量・セット数を自動提案。自分のトレーニングに特化した提案だけが届く。",
+  },
+  {
+    icon: "⚡",
+    title: "設定ゼロ。記録するだけで伸びる",
+    description:
+      "メソサイクルや週ボリューム上限の設定は不要。記録を積むだけで、自動的にプログレッシブオーバーロードが実現される。",
   },
   {
     icon: "📈",
-    title: "RIRと週ボリュームで確実に伸びる",
+    title: "中級者が求める提案精度",
     description:
-      "筋肥大研究に基づくRIR管理（余裕度）と週セット数の最適化で、感覚ではなくデータで成長できる。",
-  },
-  {
-    icon: "shield",
-    title: "回復を考慮した安全な提案",
-    description:
-      "コンパウンド種目は前回が限界なら3日以上のインターバルを自動で確保。オーバートレーニングを防ぐ。",
+      "RIR（余裕度）管理と週ボリューム最適化で、感覚ではなくデータで確実に成長できる重量を提案。伸び悩みを仕組みで解消する。",
   },
   {
     icon: "✓",
-    title: "30秒で記録完了",
+    title: "SNSなし。余計な機能なし。",
     description:
-      "提案値が初期値として入力済み。変更がなければそのまま保存するだけ。",
+      "コミュニティ機能も、ランキングも、通知も不要。トレーニングを記録して次を決める——それだけに集中できるツール。",
   },
 ];
 
@@ -41,11 +39,7 @@ export default function FeaturesSection() {
               className="bg-bg-card border border-border-default rounded-2xl p-8 flex flex-col gap-4"
             >
               <span className="text-3xl font-bold text-accent">
-                {feature.icon === "shield" ? (
-                  <Shield className="w-8 h-8 text-accent" />
-                ) : (
-                  feature.icon
-                )}
+                {feature.icon}
               </span>
               <h3 className="text-xl font-bold leading-snug">{feature.title}</h3>
               <p className="text-text-sub text-sm leading-relaxed">

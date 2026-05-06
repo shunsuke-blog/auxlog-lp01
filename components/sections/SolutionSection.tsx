@@ -3,21 +3,19 @@ export default function SolutionSection() {
     <section className="py-24 px-6 bg-bg-card">
       <div className="max-w-6xl mx-auto text-center">
         <h2 className="text-4xl md:text-5xl font-black mb-12 leading-tight">
-          Auxlogが、
+          自分の種目で、
           <br />
-          考える時間を
-          <br />
-          ゼロにする。
+          最速で伸びる。
         </h2>
         <p className="text-text-sub text-lg md:text-xl max-w-2xl mx-auto leading-relaxed">
-          前回の記録・疲労度・経過日数・週ボリュームを
-          <span className="text-accent font-bold">科学的アルゴリズムで分析</span>。
+          複雑な設定はいらない。
           <br />
-          今日やるべきメニューを
-          <span className="text-accent font-bold">自動で計算</span>する。
+          自分がいつも使う種目を記録するだけで、
           <br />
-          <span className="text-accent font-bold">アプリを開いた瞬間</span>
-          に答えが出ている。
+          Auxlogが次の重量・セット数を
+          <span className="text-accent font-bold">自動で導き出す</span>。
+          <br />
+          余計な提案も、余計な機能もない。
         </p>
       </div>
     </section>

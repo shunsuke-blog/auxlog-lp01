@@ -22,16 +22,18 @@ export default function HeroSection() {
       <div className="max-w-6xl mx-auto">
         <div className="flex flex-col items-center text-center gap-8">
           <h1 className="text-5xl md:text-7xl font-black leading-tight tracking-tight">
-            今日やるべき
+            感覚をやめて、
             <br />
-            トレーニングを
+            <span className="text-accent">データ</span>で
             <br />
-            <span className="text-accent">30秒</span>で決める。
+            伸びろ。
           </h1>
           <p className="text-text-sub text-lg md:text-xl max-w-xl leading-relaxed">
-            感覚に頼ったトレーニングをやめろ。
+            余計な機能も、余計な提案も、いらない。
             <br />
-            Auxlogが前回の記録から、科学的アルゴリズムで今日やるべき重量・セット・回数を自動で導き出す。
+            自分がいつもやる種目から、次の重量・セットを自動で出す。
+            <br />
+            シンプルに、確実に伸びたい中級者のために作った。
           </p>
           <div className="flex flex-col items-center gap-3">
             <CTAButton className="w-full sm:w-auto text-lg px-10 py-5" />
