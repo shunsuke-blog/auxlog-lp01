@@ -1,11 +1,13 @@
 import Link from "next/link";
 import CTAButton from "./CTAButton";
 import WebViewBanner from "./WebViewBanner";
+import PwaInstallBanner from "./PwaInstallBanner";
 
 export default function Nav() {
   return (
     <div className="fixed top-0 left-0 right-0 z-50">
       <WebViewBanner />
+      <PwaInstallBanner />
       <nav className="bg-[#0A0A0A]/80 backdrop-blur-md border-b border-border-default">
         <div className="max-w-6xl mx-auto px-6 h-16 flex items-center justify-between">
           <Link href="/" className="text-white font-black text-xl tracking-tight">
