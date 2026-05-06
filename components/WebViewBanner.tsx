@@ -38,11 +38,11 @@ export default function WebViewBanner() {
   if (env.ios) {
     return (
       <div className="w-full bg-[#1a1a1a] border-b border-[#333] px-4 py-3 text-sm text-center">
-        <span className="text-white/80">Xアプリ内ではログインできません。</span>
+        <span className="text-white/80">無料登録はブラウザから。</span>
         <span className="ml-1 text-[#E8FF00] font-semibold">
-          右下のコンパス（⊙）ボタン
+          右下のコンパス（⊙）
         </span>
-        <span className="text-white/80">をタップしてブラウザで開いてください。</span>
+        <span className="text-white/80">をタップしてください。</span>
       </div>
     );
   }
