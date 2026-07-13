@@ -23,7 +23,7 @@ export default function Footer() {
               特定商取引法
             </Link>
             <a
-              href="mailto:support@auxlog.com"
+              href="mailto:auxlog.support@gmail.com"
               className="hover:text-white transition-colors"
             >
               お問い合わせ
