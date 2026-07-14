@@ -22,12 +22,9 @@ export default function Footer() {
             >
               特定商取引法
             </Link>
-            <a
-              href="mailto:auxlog.support@gmail.com"
-              className="hover:text-white transition-colors"
-            >
-              お問い合わせ
-            </a>
+            <Link href="/support" className="hover:text-white transition-colors">
+              サポート
+            </Link>
           </div>
           <p className="text-text-sub text-sm">
             © 2026 Auxlog. All rights reserved.
