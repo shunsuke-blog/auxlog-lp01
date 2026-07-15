@@ -1,9 +1,9 @@
 const problems = [
   {
-    icon: "📊",
-    title: "記録はしてる。でも次に何をすればいいか、わからない",
+    icon: "📉",
+    title: "初心者の頃は伸びていたのに、ある時から止まった",
     description:
-      "記録は手段であって目的じゃない。前回より何をどう変えるか——その答えが自動で出てこなければ、記録の意味は半減する。",
+      "毎月のように更新していた重量が、気づけば何ヶ月も変わらない。それは才能の限界じゃない。初心者ボーナスが切れて、同じやり方が通用しなくなっただけ。",
   },
   {
     icon: "⚙️",
@@ -12,10 +12,16 @@ const problems = [
       "メソサイクル、週ボリューム上限……理屈はわかっていても、それを自分で組み立て続けるのは別の話。毎回考えることそのものが、一番の負担であり挫折の原因になる。",
   },
   {
-    icon: "🎯",
-    title: "AIが自分と関係ない種目を勧めてくる",
+    icon: "⚖️",
+    title: "気づけば好きな種目ばかりで、部位が偏っている",
     description:
-      "知らない種目、ジムにない器具、普段やらない動き。自分の好みを無視した提案に振り回されても、続かないし伸びない。",
+      "ベンチプレスは得意だけど、背中や脚は後回し。自分では気づきにくいけど、伸び悩みの原因になっている偏りかもしれない。",
+  },
+  {
+    icon: "🤔",
+    title: "「メソサイクル」「RIR」……聞くけど、結局わからない",
+    description:
+      "もっともらしい言葉はよく見かける。でも結局、それを自分でどう組み立てればいいのかまでは教えてくれない。",
   },
 ];
 
@@ -24,11 +30,11 @@ export default function ProblemSection() {
     <section className="py-24 px-6">
       <div className="max-w-6xl mx-auto">
         <h2 className="text-4xl md:text-5xl font-black text-center mb-16">
-          こんな経験、
+          こんな悩み、
           <br />
-          したことないか？
+          ありませんか？
         </h2>
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
           {problems.map((problem) => (
             <div
               key={problem.title}

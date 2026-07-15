@@ -22,18 +22,18 @@ export default function HeroSection() {
       <div className="max-w-6xl mx-auto">
         <div className="flex flex-col items-center text-center gap-8">
           <h1 className="text-5xl md:text-7xl font-black leading-tight tracking-tight">
-            感覚をやめて、
+            自己流は、
             <br />
-            <span className="text-accent">データ</span>で
+            もう卒業だ。
             <br />
-            伸びろ。
+            9週間、<span className="text-accent">もう組まれている</span>。
           </h1>
-          <p className="text-text-sub text-lg md:text-xl max-w-xl leading-relaxed">
-            余計な機能も、毎回の判断も、いらない。
+          <p className="text-text-sub text-lg md:text-xl max-w-2xl leading-relaxed">
+            本来はコーチに高い金を払って設計してもらうプログラムが、最初から用意されている。
             <br />
-            9週間分のメニューはもう設計されている。頻度と時間を合わせるだけで、重量もセット数も自動で決まる。
+            研究に基づいた9週間プログラム（ボリューム→強度→ディロード→マックスアウト）が、あなたに合わせて最初から組まれている。
             <br />
-            シンプルに、確実に伸びたい中級者のために作った。
+            あなたがやることは記録するだけ。設計はアプリが担うから、迷わず、正しく伸びる。
           </p>
           <div className="flex flex-col items-center gap-3">
             <CTAButton className="w-full sm:w-auto text-lg px-10 py-5" />
