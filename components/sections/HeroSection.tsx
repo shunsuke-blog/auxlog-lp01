@@ -29,9 +29,9 @@ export default function HeroSection() {
             伸びろ。
           </h1>
           <p className="text-text-sub text-lg md:text-xl max-w-xl leading-relaxed">
-            余計な機能も、余計な提案も、いらない。
+            余計な機能も、毎回の判断も、いらない。
             <br />
-            自分がいつもやる種目から、次の重量・セットを自動で出す。
+            9週間分のメニューはもう設計されている。頻度と時間を合わせるだけで、重量もセット数も自動で決まる。
             <br />
             シンプルに、確実に伸びたい中級者のために作った。
           </p>
