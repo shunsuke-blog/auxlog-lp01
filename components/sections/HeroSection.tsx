@@ -30,14 +30,26 @@ export default function HeroSection() {
             <br />
             もう卒業だ。
             <br />
-            9週間、<span className="text-accent">もう組まれている</span>。
+            9週間後、<span className="text-accent">
+            <br />
+            生まれ変わる</span>。
           </h1>
           <p className="text-text-sub text-lg md:text-xl max-w-2xl leading-relaxed">
-            本来はコーチに高い金を払って設計してもらうプログラムが、最初から用意されている。
+            本来は高い金を払ってコーチに設計してもらう
             <br />
-            研究に基づいた9週間プログラム（ボリューム→強度→ディロード→マックスアウト）が、あなたに合わせて最初から組まれている。
+            プログラムが、最初から用意されている。
             <br />
-            あなたがやることは記録するだけ。設計はアプリが担うから、迷わず、正しく伸びる。
+            研究に基づいた9週間プログラム
+            <br />
+            （ボリューム→強度→ディロード→マックスアウト）が、
+            <br />
+            あなたに合わせてAIが組んでくれる。
+            <br />
+            あなたがやることは記録するだけ。
+            <br />
+            設計はアプリが担うから、
+            <br />
+            迷わず、正しく伸びる。
           </p>
           <div className="flex flex-col items-center gap-3">
             <CTAButton className="w-full sm:w-auto text-lg px-10 py-5" />

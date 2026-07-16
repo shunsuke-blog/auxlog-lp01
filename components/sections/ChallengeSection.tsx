@@ -3,7 +3,9 @@ export default function ChallengeSection() {
     <section className="py-24 px-6">
       <div className="max-w-4xl mx-auto text-center">
         <h2 className="text-4xl md:text-5xl font-black mb-12 leading-tight">
-          「なんとなく」の積み重ねが、
+          「なんとなく」の
+          <br />
+          積み重ねが、
           <br />
           伸び悩みの正体。
         </h2>
