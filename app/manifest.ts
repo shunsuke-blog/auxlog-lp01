@@ -2,10 +2,10 @@ import { MetadataRoute } from "next";
 
 export default function manifest(): MetadataRoute.Manifest {
   return {
-    name: "Auxlog - 今日のトレーニングを、30秒で決める。",
+    name: "Auxlog - 自己流は、もう卒業だ。9週間、もう組まれている。",
     short_name: "Auxlog",
     description:
-      "筋トレ中級者・上級者向けの科学的アルゴリズムによる自動メニュー提案アプリ",
+      "研究に基づいた9週間プログラムがあなたに合わせて最初から組まれている、筋トレ中級者・上級者向けアプリ",
     start_url: "/",
     display: "standalone",
     background_color: "#0A0A0A",

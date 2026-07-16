@@ -3,15 +3,19 @@ import CTAButton from "../CTAButton";
 
 const mockups = [
   {
-    src: "/screenshots/app-mockup01.jpg",
+    src: "/screenshots/app-mockup-coaching.png",
+    alt: "9週間コーチング画面",
+  },
+  {
+    src: "/screenshots/app-mockup-today.png",
     alt: "今日のメニュー画面",
   },
   {
-    src: "/screenshots/app-mockup02.jpg",
+    src: "/screenshots/app-mockup-workout.png",
     alt: "トレーニング記録画面",
   },
   {
-    src: "/screenshots/app-mockup03.jpg",
+    src: "/screenshots/app-mockup-history.png",
     alt: "履歴・グラフ画面",
   },
 ];
