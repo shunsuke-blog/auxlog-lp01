@@ -35,9 +35,11 @@ export default function HeroSection() {
             生まれ変わる</span>。
           </h1>
           <p className="text-text-sub text-lg md:text-xl max-w-2xl leading-relaxed">
-            本来は高い金を払ってコーチに設計してもらう
+            本来は高い金を払って
             <br />
-            プログラムが、最初から用意されている。
+            トレーナーに設計してもらうプログラムが、
+            <br />
+            最初から用意されている。
             <br />
             研究に基づいた9週間プログラム
             <br />

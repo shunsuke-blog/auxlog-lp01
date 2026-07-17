@@ -5,7 +5,7 @@ export default function CTASection() {
     <section className="py-32 px-6 bg-bg-card">
       <div className="max-w-6xl mx-auto flex flex-col items-center text-center gap-6">
         <h2 className="text-5xl md:text-7xl font-black leading-tight">
-          コーチは、
+          トレーナーは、
           <br />
           もういらない。
         </h2>

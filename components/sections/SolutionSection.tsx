@@ -8,12 +8,12 @@ export default function SolutionSection() {
           もう、設計されている。
         </h2>
         <p className="text-text-sub text-lg md:text-xl max-w-2xl mx-auto leading-relaxed">
-          本来、あなたに合わせたプログラム設計はコーチが継続的に時間をかけて行うもの。
+          本来、あなたに合わせたプログラム設計はトレーナーが継続的に時間をかけて行うもの。
           <br />
           Auxlogは、研究に基づいた9週間プログラム（ボリューム→強度→ディロード→マックスアウト）としてその設計をあらかじめ体系化しており、あなたがやることはジムでその日のメニューを記録するだけ。
           <br />
           進捗は「コーチングページ」でグラフとフェーズ説明として
-          <span className="text-accent font-bold">自動的に可視化</span>され、コーチに毎週チェックしてもらうような安心感を、人を介さずに得られる。
+          <span className="text-accent font-bold">自動的に可視化</span>され、トレーナーに毎週チェックしてもらうような安心感を、人を介さずに得られる。
         </p>
       </div>
     </section>
