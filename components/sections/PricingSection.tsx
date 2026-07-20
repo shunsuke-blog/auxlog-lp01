@@ -12,9 +12,14 @@ export default function PricingSection() {
   return (
     <section className="py-24 px-6">
       <div className="max-w-6xl mx-auto">
-        <h2 className="text-4xl md:text-5xl font-black text-center mb-16">
+        <h2 className="text-4xl md:text-5xl font-black text-center mb-4">
           シンプルな料金体系
         </h2>
+        <p className="text-text-sub text-base text-center mb-16">
+          パーソナルトレーナーに設計してもらうなら月2〜7万円台が相場。
+          <br />
+          Auxlogならその数%で、同じ設計思想をアプリが担う。
+        </p>
         <div className="max-w-md mx-auto border border-[#E8FF00] rounded-3xl p-10 flex flex-col gap-8">
           <div className="flex flex-col gap-4">
             <span className="inline-flex items-center self-start bg-[#E8FF00] text-black text-xs font-bold px-3 py-1 rounded-full">
