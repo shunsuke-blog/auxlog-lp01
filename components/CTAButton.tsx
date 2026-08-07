@@ -11,7 +11,7 @@ export default function CTAButton({
 }: Props) {
   return (
     <Link
-      href="https://auxlog.app/login"
+      href="https://apps.apple.com/jp/app/auxlog/id6790152534"
       className={`inline-flex items-center gap-2 bg-[#E8FF00] text-black font-bold text-base px-8 py-4 rounded-full hover:bg-[#d4e800] transition-colors duration-200 ${className}`}
     >
       {text}

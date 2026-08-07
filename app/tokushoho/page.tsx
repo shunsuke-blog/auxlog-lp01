@@ -17,7 +17,7 @@ const items = [
     value: "お問い合わせいただいた場合、遅滞なく開示いたします。",
   },
   { label: "メールアドレス", value: "auxlog.support@gmail.com", isEmail: true },
-  { label: "販売価格", value: "¥2,980 / 月（税込）" },
+  { label: "販売価格", value: "¥480 / 月（税込）" },
   { label: "支払方法", value: "クレジットカード" },
   { label: "支払時期", value: "無料トライアル終了後、毎月自動更新" },
   { label: "サービス提供時期", value: "決済完了後すぐ" },

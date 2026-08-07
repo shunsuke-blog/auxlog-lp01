@@ -37,7 +37,7 @@ export default function HeroSection() {
           <p className="text-text-sub text-lg md:text-xl max-w-2xl leading-relaxed">
             本来は高い金を払って
             <br />
-            トレーナーに設計してもらうプログラムが、
+            トレーナーに設計してもらうメニューが、
             <br />
             最初から用意されている。
             <br />
