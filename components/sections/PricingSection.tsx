@@ -26,7 +26,7 @@ export default function PricingSection() {
               30日間無料トライアル
             </span>
             <div>
-              <span className="text-5xl font-black">¥480</span>
+              <span className="text-5xl font-black">¥980</span>
               <span className="text-text-sub text-lg ml-2">/ 月</span>
             </div>
             <p className="text-text-sub text-sm">

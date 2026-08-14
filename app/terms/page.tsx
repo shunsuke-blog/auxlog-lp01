@@ -30,7 +30,7 @@ export default function TermsPage() {
           <section>
             <h2 className="text-xl font-bold mb-3">3. 料金・支払い</h2>
             <ul className="text-text-sub flex flex-col gap-2 list-disc list-inside">
-              <li>Auxlog本体：月額¥480（税込）。30日間の無料トライアルあり。トライアル終了後、自動的に月額プランに移行します</li>
+              <li>Auxlog本体：月額¥980（税込）。30日間の無料トライアルあり。トライアル終了後、自動的に月額プランに移行します</li>
               <li>Web版はクレジットカード決済（Stripe）、モバイルアプリ版はApple App内課金でお支払いいただきます</li>
               <li>解約はいつでも可能です（モバイルアプリ版はApple「設定」アプリのサブスクリプション管理から行います）</li>
               <li>月額オンラインコーチングをご利用の場合は、別途提示する料金・期間が適用されます</li>
