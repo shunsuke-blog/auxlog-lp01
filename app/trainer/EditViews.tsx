@@ -63,7 +63,7 @@ export default function EditViews() {
           data-slot={`edit-${v.key}`}
           data-kind="product"
           data-alt={v.alt}
-          style={{ aspectRatio: "2405 / 1800" }}
+          style={{ aspectRatio: "2753 / 1797" }}
         >
           <Image src={v.src} alt={v.alt} fill sizes="(min-width: 60rem) 56vw, 100vw" unoptimized />
         </div>

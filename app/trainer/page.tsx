@@ -85,7 +85,7 @@ export default function TrainerPage() {
           <div className="container">
             <figure className="shot">
               <div className="shot__frame showcase__frame" data-slot="dashboard" data-kind="product" data-alt="トレーナーのダッシュボード（契約中・今週の進み・ToDo・アラート）">
-                <Image src="/trainer/dashboard.png" alt="Auxlogのトレーナー用ダッシュボード。契約中の人数、今週完了した種目、1RM更新件数、最近のアクティビティ、ToDo、アラートが並ぶ" fill sizes="(min-width: 90rem) 1312px, 100vw" fetchPriority="high" loading="eager" unoptimized />
+                <Image src="/trainer/dashboard.png" alt="Auxlogのトレーナー用ダッシュボード。対応すること（アラートとToDo）、契約中の人数や1RM更新件数、最近のアクティビティ、今週の進捗が並ぶ" fill sizes="(min-width: 90rem) 1312px, 100vw" fetchPriority="high" loading="eager" unoptimized />
               </div>
               <figcaption>{jp("ログインして最初に開く画面。今週の進み、次にやること、止まっている人がここに集まります。")}</figcaption>
             </figure>
@@ -274,7 +274,7 @@ const STACK = [
     alt: "種目の入れ替え画面。全週のDay 1かこの週だけかを選び、同じ動きの種目と同じ部位の種目から選ぶ",
   },
   {
-    id: "watch", verb: "見守る", src: "/trainer/client.png", ratio: "2405 / 1800", width: "100%",
+    id: "watch", verb: "見守る", src: "/trainer/client.png", ratio: "2753 / 1797", width: "100%",
     title: "止まった人から、先に知らせる",
     body: "記録が途切れた人がいれば、すぐ分かります。1RMが伸びない種目も、アラートで。",
     alt: "クライアント一覧と詳細。推定1RMが更新されていないというアラート、プランの進み、自己ベストが表示されている",
