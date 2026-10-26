@@ -166,13 +166,18 @@ export default function TrainerPage() {
                   <p className="plan__price"><span className="plan__yen">{p.price}</span><span className="plan__unit">{p.from ? "〜 / 月" : "/ 月"}</span></p>
                   <ul className="plan__list">
                     {p.items.map((i) => <li key={i}>{jp(i)}</li>)}
+                    {p.inquiry && (
+                      <li className="plan__inquiry">
+                        お申し込みは下記まで
+                        <a className="link" href={`mailto:${CONTACT_EMAIL}?subject=${encodeURIComponent("ビジネスプランの申し込み")}`}>{CONTACT_EMAIL}</a>
+                      </li>
+                    )}
                   </ul>
                 </li>
               ))}
             </ul>
             <div className="board__foot">
               <a className="btn btn--card" href={START_URL}>無料で始める</a>
-              <a className="link" href={`mailto:${CONTACT_EMAIL}?subject=${encodeURIComponent("ビジネスプランの相談")}`}>ビジネスプランを相談する</a>
               <p>{jp("表示価格は税込です。クレジットカードは不要です。4人目を追加するときに、プロプランをご案内します。")}</p>
             </div>
           </div>
@@ -236,10 +241,11 @@ const STACK = [
 ];
 
 // from: true は「〜」付き（ビジネスはトレーナー4名以上の店舗が個別見積もりのため）
-const PLANS: { name: string; price: string; from?: boolean; items: string[] }[] = [
+// inquiry: true はお問い合わせ制（申し込み先のメールアドレスをプランの中に出す）
+const PLANS: { name: string; price: string; from?: boolean; inquiry?: boolean; items: string[] }[] = [
   { name: "スターター", price: "¥0", items: ["クライアント3名まで", "ご自身のアカウントは枠外で無制限"] },
   { name: "プロ", price: "¥9,800", items: ["クライアント30名まで"] },
-  { name: "ビジネス", price: "¥19,800", from: true, items: ["クライアント無制限", "管理者・トレーナー3名まで", "チーム管理と優先サポート", "お申し込みはお問い合わせ制"] },
+  { name: "ビジネス", price: "¥19,800", from: true, inquiry: true, items: ["クライアント無制限", "管理者・トレーナー3名まで", "チーム管理と優先サポート"] },
 ];
 
 const FAQ: [string, React.ReactNode][] = [
