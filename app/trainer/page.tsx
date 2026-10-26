@@ -169,7 +169,7 @@ export default function TrainerPage() {
                     {p.inquiry && (
                       <li className="plan__inquiry">
                         お申し込みは下記まで
-                        <a className="link" href={`mailto:${CONTACT_EMAIL}?subject=${encodeURIComponent("ビジネスプランの申し込み")}`}>{CONTACT_EMAIL}</a>
+                        <a className="link" href={businessMailto("ビジネスプランの申し込み")}>{CONTACT_EMAIL}</a>
                       </li>
                     )}
                   </ul>
@@ -240,6 +240,11 @@ const STACK = [
   },
 ];
 
+// ビジネスプランの申し込み・相談メール。料金はトレーナーの人数で決まるので、最初のメールで人数を伺う
+const BUSINESS_MAIL_BODY = ["店舗名：", "ご担当者名：", "トレーナーの人数：", "クライアントのおおよその人数：", "ご連絡先（電話番号など）：", "ご質問・ご要望："].join("\r\n");
+const businessMailto = (subject: string) =>
+  `mailto:${CONTACT_EMAIL}?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(BUSINESS_MAIL_BODY)}`;
+
 // from: true は「〜」付き（ビジネスはトレーナーの人数に応じて個別見積もりのため）
 // inquiry: true はお問い合わせ制（申し込み先のメールアドレスをプランの中に出す）
 const PLANS: { name: string; price: string; from?: boolean; inquiry?: boolean; items: string[] }[] = [
@@ -255,7 +260,7 @@ const FAQ: [string, React.ReactNode][] = [
   ["iPhoneアプリには対応していますか？", "はい。iPhoneアプリのコーチングモードで、あなたのプランのまま記録できます。Web版でも記録できます。"],
   ["ビジネスプランはどう申し込みますか？", <>
     {jp("お問い合わせ制です。店舗の体制を伺い、導入をお手伝いしたうえで、申し込みのご案内をお送りします。料金は、トレーナーの人数に応じてお見積もりします。")}
-    <span className="sentence">ご相談：<a className="link" href={`mailto:${CONTACT_EMAIL}?subject=${encodeURIComponent("ビジネスプランの相談")}`}>{CONTACT_EMAIL}</a></span>
+    <span className="sentence">ご相談：<a className="link" href={businessMailto("ビジネスプランの相談")}>{CONTACT_EMAIL}</a></span>
   </>],
 ];
 
