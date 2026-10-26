@@ -178,7 +178,7 @@ export default function TrainerPage() {
             </ul>
             <div className="board__foot">
               <a className="btn btn--card" href={START_URL}>無料で始める</a>
-              <p>{jp("表示価格は税込です。クレジットカードは不要です。4人目を追加するときに、プロプランをご案内します。")}</p>
+              <p>{jp("表示価格は税込です。クレジットカードは不要です。4人目のクライアントを招待するときに、プロプランをご案内します。")}</p>
             </div>
           </div>
         </section>
