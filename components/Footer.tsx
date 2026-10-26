@@ -16,12 +16,13 @@ export default function Footer() {
             <Link href="/terms" className="hover:text-white transition-colors">
               利用規約
             </Link>
-            <Link
+            {/* 特商法の表記はトレーナー向けのデザインなので、フル遷移にしてそのCSSをこのページに持ち込まない */}
+            <a
               href="/tokushoho"
               className="hover:text-white transition-colors"
             >
               特定商取引法
-            </Link>
+            </a>
             <Link href="/support" className="hover:text-white transition-colors">
               サポート
             </Link>

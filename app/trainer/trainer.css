@@ -3,6 +3,7 @@
  * axes: light/grotesk-sans/warm · posture: restrained · contrast: pass · fold: pass · accent: teal 190 by request (owner's brand #0B7A75 replaces coral) · v2.0.0 */
 /* Hallmark · pre-emit critique: P4 H4 E4 S4 R4 V4 · weakest: S, a program builder could be any fitness SaaS; led with the real dashboard and the live periodisation only Auxlog ships */
 /* Hallmark · waive 44c · hero: Banner posture, the dashboard capture starts above the fold at 1440 · the owner's dashboard is the first screen a trainer sees, so it leads under a short banner */
+/* Hallmark · dismissed 77 · /tokushoho is the legal disclosure table sharing this stylesheet, a document of rows, not a landing page that wants six sections */
 /* Hallmark · dismissed F4 · .btn--card is Coral's quiet letterpress control, cotton on desk, not a second filled primary; the ink board button is the only primary */
 @import url("./tokens.css");
 @import url("./base.css");
@@ -181,6 +182,9 @@ body:has(> .tr) { background: var(--color-paper); color: var(--color-ink); }
 .plan__list { list-style: none; margin: 0; padding: var(--space-md) 0 0; display: grid; gap: var(--space-xs); border-top: 1px solid color-mix(in oklab, var(--color-board-type) 22%, transparent); }
 .board__foot { display: flex; flex-wrap: wrap; align-items: center; gap: var(--space-lg); margin-top: var(--space-2xl); padding-top: var(--space-xl); border-top: 1px solid color-mix(in oklab, var(--color-board-type) 22%, transparent); }
 .board__foot p { color: var(--color-board-type); opacity: 0.8; font-size: var(--text-sm); }
+.board .link { color: var(--color-board-type); text-decoration-color: color-mix(in oklab, var(--color-board-type) 45%, transparent); white-space: nowrap; }
+.board .link:hover { text-decoration-color: var(--color-board-type); }
+.board__foot p { flex-basis: 100%; }
 
 /* questions as rows */
 .faq { padding-block: var(--section-gap) var(--section-gap); }
@@ -191,6 +195,22 @@ body:has(> .tr) { background: var(--color-paper); color: var(--color-ink); }
 .faq__row:last-child { border-bottom: 1px solid var(--color-rule); }
 .faq__row dt { font-weight: 600; }
 .faq__row dd { margin: 0; color: var(--color-ink-2); }
+
+/* the legal page (tokushoho): the head on the left, the disclosures as rows beside it, like the questions */
+.legal { padding-block: var(--space-3xl) var(--section-gap); }
+.legal__grid { align-items: start; row-gap: var(--space-2xl); }
+.legal__head { grid-column: 1 / span 4; display: grid; gap: var(--space-md); position: sticky; top: calc(72px + var(--space-xl)); }
+.legal__head h1 { font-size: var(--text-section); }
+.legal__date { font-size: var(--text-sm); color: var(--color-muted); }
+.legal__rows { grid-column: 5 / span 8; margin: 0; }
+.legal__row { display: grid; grid-template-columns: minmax(0, 4fr) minmax(0, 8fr); gap: var(--gap-columns); padding-block: var(--space-lg); border-top: 1px solid var(--color-rule); }
+.legal__row:last-child { border-bottom: 1px solid var(--color-rule); }
+.legal__row > dt { font-weight: 600; }
+.legal__row > dd { margin: 0; color: var(--color-ink-2); }
+.legal__prices { display: grid; gap: var(--space-2xs); margin: 0 0 var(--space-sm); }
+.legal__prices > div { display: flex; gap: var(--space-md); }
+.legal__prices dt { min-width: 6em; color: var(--color-ink); font-weight: 500; }
+.legal__prices dd { margin: 0; font-variant-numeric: tabular-nums; }
 
 /* footer: a mast, the action once more over the wordmark */
 .foot { padding-block: var(--space-3xl) var(--space-xl); background-color: var(--color-desk); background-image: var(--tex-desk); }
@@ -223,6 +243,8 @@ body:has(> .tr) { background: var(--color-paper); color: var(--color-ink); }
   .plan, .plan:first-child { padding: var(--space-lg) 0; border-left: 0; border-top: 1px solid color-mix(in oklab, var(--color-board-type) 22%, transparent); }
   .faq__head, .faq__rows { grid-column: 1 / -1; }
   .faq__head { margin-bottom: var(--space-xl); }
+  .legal__head, .legal__rows { grid-column: 1 / -1; }
+  .legal__head { position: static; }
 }
 @media (max-width: 40rem) {
   .nav__links .btn { display: none; }
@@ -238,7 +260,7 @@ body:has(> .tr) { background: var(--color-paper); color: var(--color-ink); }
   .sheet { padding: var(--space-xl) var(--space-lg); }
   .planner__control { flex-wrap: wrap; gap: var(--space-sm) var(--space-lg); }
   .planner__control input { flex-basis: 100%; order: 3; }
-    .facts > div, .faq__row { grid-template-columns: minmax(0, 1fr); gap: var(--space-xs); }
+    .facts > div, .faq__row, .legal__row { grid-template-columns: minmax(0, 1fr); gap: var(--space-xs); }
   .rail { grid-auto-columns: 220px; gap: var(--space-md); }
 }
 @media (prefers-reduced-motion: reduce) {

@@ -1,36 +1,18 @@
 import type { Metadata } from "next";
 import Image from "next/image";
-import localFont from "next/font/local";
-import { IBM_Plex_Sans_JP } from "next/font/google";
 import BlockPlanner from "./BlockPlanner";
+import { CONTACT_EMAIL, START_URL, TrainerFooter, TrainerNav } from "./Chrome";
 import ClientRail from "./ClientRail";
 import { PHASE_NOTE, SCREENS, type Phase } from "./content";
 import EditViews from "./EditViews";
+import { trainerFontClass } from "./fonts";
 import { jp } from "./phrase";
 import "./trainer.css";
 
 // トレーナー向けLP（2026-10-25）。トレーニー向けの app/page.tsx とは別ページ・別デザイン（Hallmark / Coral テーマ、アクセントはWeb版と同じティール）。
 // トレーニー向けLPへCSSが残らないよう、他ルートへのリンクは next/link ではなく <a>（フル遷移）にしている。
+// ナビ・フッター・書体は特定商取引法の表記と共通（Chrome.tsx / fonts.ts）。
 
-const generalSans = localFont({
-  src: [
-    { path: "./fonts/GeneralSans-Regular.woff2", weight: "400" },
-    { path: "./fonts/GeneralSans-Medium.woff2", weight: "500" },
-    { path: "./fonts/GeneralSans-Semibold.woff2", weight: "600" },
-  ],
-  variable: "--font-gs",
-  display: "swap",
-});
-
-const plexJp = IBM_Plex_Sans_JP({
-  weight: ["400", "500", "600"],
-  subsets: ["latin"],
-  variable: "--font-jp",
-  display: "swap",
-  preload: false,
-});
-
-const START_URL = "https://auxlog.app/trainer/start";
 const APP_STORE_URL = "https://apps.apple.com/jp/app/auxlog/id6790152534";
 
 export const metadata: Metadata = {
@@ -50,21 +32,10 @@ export const metadata: Metadata = {
 
 export default function TrainerPage() {
   return (
-    <div className={`tr ${generalSans.variable} ${plexJp.variable}`}>
+    <div className={`tr ${trainerFontClass}`}>
       <a className="skip" href="#main">本文へ移動</a>
 
-      <header className="nav">
-        <div className="container nav__bar">
-          <a className="wordmark" href="/trainer" aria-label="Auxlog トレーナー向け トップ">
-            Auxlog<small>for トレーナー</small>
-          </a>
-          <nav className="nav__links" aria-label="メイン">
-            <a className="link hide-s" href="#pricing">料金</a>
-            <a className="link" href="https://auxlog.app/login?next=/trainer">ログイン</a>
-            <a className="btn btn--card" href={START_URL}>トレーナーとして始める</a>
-          </nav>
-        </div>
-      </header>
+      <TrainerNav />
 
       <main id="main">
         <section className="hero">
@@ -201,6 +172,7 @@ export default function TrainerPage() {
             </ul>
             <div className="board__foot">
               <a className="btn btn--card" href={START_URL}>無料で始める</a>
+              <a className="link" href={`mailto:${CONTACT_EMAIL}?subject=${encodeURIComponent("ビジネスプランの相談")}`}>ビジネスプランを相談する</a>
               <p>{jp("表示価格は税込です。クレジットカードは不要です。4人目を追加するときに、プロプランをご案内します。")}</p>
             </div>
           </div>
@@ -221,25 +193,7 @@ export default function TrainerPage() {
         </section>
       </main>
 
-      <footer className="foot">
-        <div className="container">
-          <div className="foot__close">
-            <p className="foot__line">{jp("まずは、あなた自身と身近な3人から。")}</p>
-            <a className="btn btn--card" href={START_URL}>トレーナーとして始める</a>
-          </div>
-          <p className="foot__mark" aria-hidden="true">Auxlog</p>
-          <nav className="foot__links" aria-label="フッター">
-            {/* フル遷移にして、このページのCSS（:root のトークン）をトレーニー向けLPに持ち込まない */}
-            {/* eslint-disable-next-line @next/next/no-html-link-for-pages */}
-            <a className="link" href="/">トレーニー向けアプリ</a>
-            <a className="link" href="/terms">利用規約</a>
-            <a className="link" href="/privacy">プライバシーポリシー</a>
-            <a className="link" href="/tokushoho">特定商取引法に基づく表記</a>
-            <a className="link" href="mailto:auxlog.support@gmail.com">お問い合わせ</a>
-          </nav>
-          <p className="foot__legal">© 2026 Auxlog</p>
-        </div>
-      </footer>
+      <TrainerFooter />
 
       <script dangerouslySetInnerHTML={{ __html: SLOTS_SCRIPT }} />
     </div>
@@ -284,7 +238,7 @@ const STACK = [
 const PLANS = [
   { name: "スターター", price: "¥0", items: ["クライアント3名まで", "ご自身のアカウントは枠外で無制限"] },
   { name: "プロ", price: "¥9,800", items: ["クライアント30名まで"] },
-  { name: "ビジネス", price: "¥19,800", items: ["クライアント無制限", "管理者・トレーナー3名まで", "チーム管理と優先サポート"] },
+  { name: "ビジネス", price: "¥19,800", items: ["クライアント無制限", "管理者・トレーナー3名まで", "チーム管理と優先サポート", "お申し込みはお問い合わせ制"] },
 ];
 
 const FAQ: [string, React.ReactNode][] = [
@@ -292,8 +246,9 @@ const FAQ: [string, React.ReactNode][] = [
   ["クライアントに費用はかかりますか？", "かかりません。招待コードを入れて、無料で記録できます。"],
   ["作ったプログラムは編集できますか？", "できます。重量・回数・セット数、種目の入れ替えまで、週ごとにも全週まとめても直せます。"],
   ["iPhoneアプリには対応していますか？", "はい。iPhoneアプリのコーチングモードで、あなたのプランのまま記録できます。Web版でも記録できます。"],
-  ["トレーナーが4名以上の店舗では？", <>
-    <a className="link" href="mailto:auxlog.support@gmail.com">auxlog.support@gmail.com</a> までご相談ください。お見積もりします。
+  ["ビジネスプランはどう申し込みますか？", <>
+    {jp("お問い合わせ制です。店舗の体制を伺い、導入をお手伝いしたうえで、申し込みのご案内をお送りします。トレーナーが4名以上の店舗は、お見積もりします。")}
+    <span className="sentence">ご相談：<a className="link" href={`mailto:${CONTACT_EMAIL}?subject=${encodeURIComponent("ビジネスプランの相談")}`}>{CONTACT_EMAIL}</a></span>
   </>],
 ];
 
