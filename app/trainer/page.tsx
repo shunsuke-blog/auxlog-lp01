@@ -240,12 +240,12 @@ const STACK = [
   },
 ];
 
-// from: true は「〜」付き（ビジネスはトレーナー4名以上の店舗が個別見積もりのため）
+// from: true は「〜」付き（ビジネスはトレーナーの人数に応じて個別見積もりのため）
 // inquiry: true はお問い合わせ制（申し込み先のメールアドレスをプランの中に出す）
 const PLANS: { name: string; price: string; from?: boolean; inquiry?: boolean; items: string[] }[] = [
   { name: "スターター", price: "¥0", items: ["クライアント3名まで", "ご自身のアカウントは枠外で無制限"] },
   { name: "プロ", price: "¥9,800", items: ["クライアント30名まで"] },
-  { name: "ビジネス", price: "¥19,800", from: true, inquiry: true, items: ["クライアント無制限", "管理者・トレーナー3名まで", "チーム管理と優先サポート"] },
+  { name: "ビジネス", price: "¥19,800", from: true, inquiry: true, items: ["クライアント無制限", "トレーナーの人数に応じてお見積もり", "チーム管理と優先サポート"] },
 ];
 
 const FAQ: [string, React.ReactNode][] = [
@@ -254,7 +254,7 @@ const FAQ: [string, React.ReactNode][] = [
   ["作ったプログラムは編集できますか？", "できます。重量・回数・セット数、種目の入れ替えまで、週ごとにも全週まとめても直せます。"],
   ["iPhoneアプリには対応していますか？", "はい。iPhoneアプリのコーチングモードで、あなたのプランのまま記録できます。Web版でも記録できます。"],
   ["ビジネスプランはどう申し込みますか？", <>
-    {jp("お問い合わせ制です。店舗の体制を伺い、導入をお手伝いしたうえで、申し込みのご案内をお送りします。トレーナーが4名以上の店舗は、お見積もりします。")}
+    {jp("お問い合わせ制です。店舗の体制を伺い、導入をお手伝いしたうえで、申し込みのご案内をお送りします。料金は、トレーナーの人数に応じてお見積もりします。")}
     <span className="sentence">ご相談：<a className="link" href={`mailto:${CONTACT_EMAIL}?subject=${encodeURIComponent("ビジネスプランの相談")}`}>{CONTACT_EMAIL}</a></span>
   </>],
 ];
