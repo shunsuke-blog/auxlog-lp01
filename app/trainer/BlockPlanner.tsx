@@ -1,12 +1,12 @@
 "use client";
 
-import { useId, useState } from "react";
+import { useId, useState, type ReactNode } from "react";
+import type { Phase } from "./content";
 
 // 「Auxlog で作成」の期分け（auxlog/lib/coaching/generate_template.ts の planWeeks と同じ考え方、2026-10-25 時点）。
 // 週数を動かすと、ボリューム期・強度期・途中の回復週・最後のディロード・MaxOut がその場で組み直される。
 // 本体のロジックを変えたら、ここも合わせる。
 
-type Phase = "volume" | "intensity" | "deload" | "maxout";
 
 const MAX_WEEKS = 16;
 const MAX_CONSECUTIVE_HARD_WEEKS = 7;
@@ -17,13 +17,6 @@ const PHASE_LABEL: Record<Phase, string> = {
   intensity: "強度期",
   deload: "ディロード",
   maxout: "MaxOut",
-};
-
-const PHASE_NOTE: Record<Phase, string> = {
-  volume: "セット数で刺激を積み上げる",
-  intensity: "重量を上げ、セット数を絞る",
-  deload: "重量はそのまま、疲れを抜く",
-  maxout: "限界まで挑んで実力を測る",
 };
 
 function planWeeks(totalWeeks: number): Phase[] {
@@ -61,7 +54,8 @@ function toBands(plan: Phase[]) {
   return bands;
 }
 
-export default function BlockPlanner() {
+// notes と caption は page.tsx で文節分割したもの
+export default function BlockPlanner({ notes, caption }: { notes: Record<Phase, ReactNode>; caption: ReactNode }) {
   const [weeks, setWeeks] = useState(DEFAULT_WEEKS);
   const id = useId();
   const plan = planWeeks(weeks);
@@ -99,11 +93,11 @@ export default function BlockPlanner() {
         {(Object.keys(PHASE_LABEL) as Phase[]).filter((p) => plan.includes(p)).map((p) => (
           <div key={p}>
             <dt>{PHASE_LABEL[p]}</dt>
-            <dd>{PHASE_NOTE[p]}</dd>
+            <dd>{notes[p]}</dd>
           </div>
         ))}
       </dl>
-      <figcaption>1RMはエプリーの式で記録から推定します。トレーナーが1RMを入れていない種目も、初回の記録から重量を自動で計算します。</figcaption>
+      <figcaption>{caption}</figcaption>
     </figure>
   );
 }

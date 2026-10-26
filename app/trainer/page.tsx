@@ -4,7 +4,9 @@ import localFont from "next/font/local";
 import { IBM_Plex_Sans_JP } from "next/font/google";
 import BlockPlanner from "./BlockPlanner";
 import ClientRail from "./ClientRail";
+import { PHASE_NOTE, SCREENS, type Phase } from "./content";
 import EditViews from "./EditViews";
+import { jp } from "./phrase";
 import "./trainer.css";
 
 // トレーナー向けLP（2026-10-25）。トレーニー向けの app/page.tsx とは別ページ・別デザイン（Hallmark / Coral テーマ、アクセントはWeb版と同じティール）。
@@ -29,6 +31,7 @@ const plexJp = IBM_Plex_Sans_JP({
 });
 
 const START_URL = "https://auxlog.app/trainer/start";
+const APP_STORE_URL = "https://apps.apple.com/jp/app/auxlog/id6790152534";
 
 export const metadata: Metadata = {
   title: "Auxlog for トレーナー - エクセルとLINEの往復を、終わらせる。",
@@ -66,14 +69,14 @@ export default function TrainerPage() {
       <main id="main">
         <section className="hero">
           <div className="container grid hero__grid">
-            <h1>エクセルとLINEの往復を、終わらせる。</h1>
+            <h1>{jp("エクセルとLINEの往復を、終わらせる。")}</h1>
             <div className="hero__side">
-              <p className="lead">トレーナーのための、メニュー作成とクライアント管理。</p>
+              <p className="lead">{jp("トレーナーのための、メニュー作成とクライアント管理。")}</p>
               <div className="hero__actions">
                 <a className="btn btn--ink" href={START_URL}>トレーナーとして始める</a>
                 <a className="btn btn--card" href="#screens">画面を見る</a>
               </div>
-              <p className="hero__terms">クライアント3名まで無料。クレジットカード不要。</p>
+              <p className="hero__terms">{jp("クライアント3名まで無料。クレジットカード不要。")}</p>
             </div>
           </div>
         </section>
@@ -84,14 +87,14 @@ export default function TrainerPage() {
               <div className="shot__frame showcase__frame" data-slot="dashboard" data-kind="product" data-alt="トレーナーのダッシュボード（契約中・今週の進み・ToDo・アラート）">
                 <Image src="/trainer/dashboard.png" alt="Auxlogのトレーナー用ダッシュボード。契約中の人数、今週完了した種目、1RM更新件数、最近のアクティビティ、ToDo、アラートが並ぶ" fill sizes="(min-width: 90rem) 1312px, 100vw" fetchPriority="high" loading="eager" unoptimized />
               </div>
-              <figcaption>ログインして最初に開く画面。今週の進み、次にやること、止まっている人がここに集まります。</figcaption>
+              <figcaption>{jp("ログインして最初に開く画面。今週の進み、次にやること、止まっている人がここに集まります。")}</figcaption>
             </figure>
           </div>
         </section>
 
         <section className="compare" aria-labelledby="compare-h">
           <div className="container">
-            <h2 id="compare-h">エクセルとLINEでやっていたこと</h2>
+            <h2 id="compare-h">{jp("エクセルとLINEでやっていたこと")}</h2>
             <table className="compare__table">
               <thead>
                 <tr>
@@ -104,8 +107,8 @@ export default function TrainerPage() {
                 {COMPARE.map(([job, before, after]) => (
                   <tr key={job}>
                     <th scope="row">{job}</th>
-                    <td className="compare__before">{before}</td>
-                    <td>{after}</td>
+                    <td className="compare__before">{jp(before)}</td>
+                    <td>{jp(after)}</td>
                   </tr>
                 ))}
               </tbody>
@@ -117,7 +120,7 @@ export default function TrainerPage() {
           <div className="container grid stack__grid">
             <div className="stack__pane">
               <h2 id="stack-h">作る、直す、見守る。</h2>
-              <p className="lead">トレーナーの仕事が、そのまま画面になっています。</p>
+              <p className="lead">{jp("トレーナーの仕事が、そのまま画面になっています。")}</p>
               <ol className="stack__index">
                 {STACK.map((s) => (
                   <li key={s.id}><a className="link" href={`#${s.id}`}>{s.verb}</a></li>
@@ -133,8 +136,8 @@ export default function TrainerPage() {
                     </div>
                   )}
                   <figcaption>
-                    <h3>{s.title}</h3>
-                    <p>{s.body}</p>
+                    <h3>{jp(s.title)}</h3>
+                    <p>{jp(s.body)}</p>
                   </figcaption>
                 </figure>
               ))}
@@ -145,42 +148,45 @@ export default function TrainerPage() {
         <section className="block" aria-labelledby="block-h">
           <div className="container">
             <div className="block__head">
-              <h2 id="block-h">週数を決めれば、期分けまで組む</h2>
-              <p className="lead">1〜16週、週2〜7日。負荷の高い週が続きすぎないよう、回復週も自動で入ります。</p>
+              <h2 id="block-h">{jp("週数を決めれば、期分けまで組む")}</h2>
+              <p className="lead">{jp("1〜16週、週2〜7日。負荷の高い週が続きすぎないよう、回復週も自動で入ります。")}</p>
             </div>
-            <BlockPlanner />
+            <BlockPlanner
+              notes={Object.fromEntries(Object.entries(PHASE_NOTE).map(([k, v]) => [k, jp(v)])) as Record<Phase, React.ReactNode>}
+              caption={jp("1RMはエプリーの式で記録から推定します。トレーナーが1RMを入れていない種目も、初回の記録から重量を自動で計算します。")}
+            />
           </div>
         </section>
 
         <section className="client" aria-labelledby="client-h">
           <div className="container grid client__grid">
             <div className="client__head">
-              <h2 id="client-h">クライアントは、記録するだけ</h2>
-              <p className="lead">クライアントのスマホ（Web版）の画面です。</p>
+              <h2 id="client-h">{jp("クライアントは、記録するだけ")}</h2>
+              <p className="lead">{jp("クライアントのスマホ（Web版）の画面です。")}</p>
             </div>
             <dl className="facts client__facts">
               <div>
                 <dt>料金</dt>
-                <dd>無料です。アプリ内課金もありません。</dd>
+                <dd>{jp("無料です。アプリ内課金もありません。")}</dd>
               </div>
               <div>
                 <dt>始め方</dt>
-                <dd>あなたが発行する招待コードを入れると、プランが届きます。</dd>
+                <dd>{jp("あなたが発行する招待コードを入れると、プランが届きます。")}</dd>
               </div>
               <div>
                 <dt>記録する場所</dt>
-                <dd>Web版（auxlog.app）で今すぐ。iPhoneのコーチングモード（iOS 1.2.0）は近日公開です。</dd>
+                <dd>{jp("iPhoneアプリのコーチングモードと、Web版（auxlog.app）。")}<br /><a className="link" href={APP_STORE_URL}>App Storeで見る</a></dd>
               </div>
             </dl>
           </div>
-          <ClientRail />
+          <ClientRail captions={SCREENS.map((sc) => jp(sc.caption))} />
         </section>
 
         <section className="board" id="pricing" aria-labelledby="pricing-h">
           <div className="container">
             <div className="board__head">
-              <h2 id="pricing-h">料金は、クライアントの人数で</h2>
-              <p className="lead">3名までずっと無料。ご自身のアカウントは人数に数えません。</p>
+              <h2 id="pricing-h">{jp("料金は、クライアントの人数で")}</h2>
+              <p className="lead">{jp("3名までずっと無料。ご自身のアカウントは人数に数えません。")}</p>
             </div>
             <ul className="plans">
               {PLANS.map((p) => (
@@ -188,14 +194,14 @@ export default function TrainerPage() {
                   <h3>{p.name}</h3>
                   <p className="plan__price"><span className="plan__yen">{p.price}</span><span className="plan__unit">/ 月</span></p>
                   <ul className="plan__list">
-                    {p.items.map((i) => <li key={i}>{i}</li>)}
+                    {p.items.map((i) => <li key={i}>{jp(i)}</li>)}
                   </ul>
                 </li>
               ))}
             </ul>
             <div className="board__foot">
               <a className="btn btn--card" href={START_URL}>無料で始める</a>
-              <p>表示価格は税込です。クレジットカードは不要で、4人目を追加するときに画面でプロプランをご案内します。</p>
+              <p>{jp("表示価格は税込です。クレジットカードは不要で、4人目を追加するときに画面でプロプランをご案内します。")}</p>
             </div>
           </div>
         </section>
@@ -206,8 +212,8 @@ export default function TrainerPage() {
             <dl className="faq__rows">
               {FAQ.map(([q, a]) => (
                 <div key={q} className="faq__row">
-                  <dt>{q}</dt>
-                  <dd>{a}</dd>
+                  <dt>{jp(q)}</dt>
+                  <dd>{typeof a === "string" ? jp(a) : a}</dd>
                 </div>
               ))}
             </dl>
@@ -218,7 +224,7 @@ export default function TrainerPage() {
       <footer className="foot">
         <div className="container">
           <div className="foot__close">
-            <p className="foot__line">まずは、あなた自身と身近な3人から。</p>
+            <p className="foot__line">{jp("まずは、あなた自身と身近な3人から。")}</p>
             <a className="btn btn--card" href={START_URL}>トレーナーとして始める</a>
           </div>
           <p className="foot__mark" aria-hidden="true">Auxlog</p>
@@ -285,7 +291,7 @@ const FAQ: [string, React.ReactNode][] = [
   ["自分のトレーニングも記録できますか？", "はい。ご自身のアカウントはクライアントの人数に数えず、無料で使えます。"],
   ["クライアントに費用はかかりますか？", "かかりません。招待コードを入れて、無料で記録できます。"],
   ["作ったプログラムは編集できますか？", "できます。重量・回数・セット数、種目の入れ替えまで、週ごとにも全週まとめても直せます。"],
-  ["iPhoneアプリには対応していますか？", "コーチングモード（iOS 1.2.0）を近日公開します。それまではWeb版で記録できます。"],
+  ["iPhoneアプリには対応していますか？", "はい。クライアントはiPhoneアプリのコーチングモードで、あなたのプランのまま記録できます。Web版でも記録できます。"],
   ["トレーナーが4名以上の店舗では？", <>
     <a className="link" href="mailto:auxlog.support@gmail.com">auxlog.support@gmail.com</a> までご相談ください。お見積もりします。
   </>],

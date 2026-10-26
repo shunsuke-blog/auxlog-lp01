@@ -18,7 +18,8 @@
 body:has(> .tr) { background: var(--color-paper); color: var(--color-ink); }
 .tr h1, .tr h2, .tr h3 { font-weight: var(--display-weight); }
 .tr h1, .tr h2 { letter-spacing: -0.02em; line-height: 1.12; }
-.tr h1, .tr h2, .tr h3, .tr p, .tr dd, .tr td, .tr figcaption { word-break: auto-phrase; line-break: strict; }
+/* phrase breaks come from <wbr> (phrase.tsx), so breaking is kept to them everywhere, Safari included */
+.tr h1, .tr h2, .tr h3, .tr p, .tr dt, .tr dd, .tr td, .tr th, .tr li, .tr figcaption { word-break: keep-all; overflow-wrap: anywhere; line-break: strict; }
 /* ch is the width of a half-width 0, so Japanese measures run on em (one full-width character) */
 .tr h1 { max-width: 13em; } .tr h2 { max-width: 16em; } .tr h3 { max-width: 24em; }
 .tr .lead { max-width: 26em; } .tr p:not([class]) { max-width: 36em; }

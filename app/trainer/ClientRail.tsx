@@ -1,21 +1,14 @@
 "use client";
 
 import Image from "next/image";
-import { useCallback, useEffect, useRef, useState } from "react";
+import { useCallback, useEffect, useRef, useState, type ReactNode } from "react";
+import { SCREENS } from "./content";
 
 // クライアント側（Web版をスマホ幅で撮影）の画面を横に並べるレール。自動では動かさない。
 // スワイプ・ホイール・矢印キーで動く。下のドットは「止まれる位置」の数だけ出し、押すとその位置へ送る。
 
-const SCREENS = [
-  { src: "/trainer/client-home.png", caption: "今日のメニュー。重量と回数はプランから入っています。", alt: "クライアントのホーム画面。佐藤翔太さんのプラン、今週の目的、Day 3の種目と重量" },
-  { src: "/trainer/client-record.png", caption: "セットごとに記録。消耗度とメモはトレーナーにも届きます。", alt: "記録画面。レッグプレスの5セットの重量と回数、消耗度、メモ" },
-  { src: "/trainer/client-done.png", caption: "記録が終わった日はコンプリート。進み具合はダッシュボードへ。", alt: "Day 2がコンプリートになったホーム画面。記録済みの種目が並ぶ" },
-  { src: "/trainer/client-plan.png", caption: "いま何週目のどの期か。今週の目的も一緒に。", alt: "プログラム画面。Week 6 / 9、強度期、週ごとの期の流れ、今週の目的" },
-  { src: "/trainer/client-exercises.png", caption: "種目やセットを変えたい時は、トレーナーに相談する設計です。", alt: "種目情報の画面。種目やセットはトレーナーが決めます、変更したい時は佐藤翔太さんに相談してください、という案内とDayごとの種目と1RM" },
-  { src: "/trainer/client-history.png", caption: "履歴とグラフで、伸びを本人も確かめられます。", alt: "履歴画面。カレンダーとローバースクワットの総挙上量のグラフ" },
-];
-
-export default function ClientRail() {
+// captions は page.tsx で文節分割した説明（SCREENS と同じ順）
+export default function ClientRail({ captions }: { captions: ReactNode[] }) {
   const rail = useRef<HTMLUListElement>(null);
   const [stops, setStops] = useState(SCREENS.length);
   const [active, setActive] = useState(0);
@@ -62,13 +55,13 @@ export default function ClientRail() {
   return (
     <div className="rail-wrap">
       <ul className="rail" ref={rail} tabIndex={0} aria-label="クライアント側の画面">
-        {SCREENS.map((s) => (
+        {SCREENS.map((s, i) => (
           <li key={s.src} className="rail__item">
             <figure className="shot">
               <div className="shot__frame rail__frame" data-slot={s.src.split("/").pop()?.replace(".png", "")} data-kind="product" data-alt={s.alt}>
                 <Image src={s.src} alt={s.alt} fill sizes="280px" unoptimized />
               </div>
-              <figcaption>{s.caption}</figcaption>
+              <figcaption>{captions[i] ?? s.caption}</figcaption>
             </figure>
           </li>
         ))}
