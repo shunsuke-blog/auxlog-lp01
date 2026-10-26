@@ -149,7 +149,7 @@ export default function TrainerPage() {
           <div className="container">
             <div className="block__head">
               <h2 id="block-h">{jp("週数を決めれば、期分けまで組む")}</h2>
-              <p className="lead">{jp("1〜16週、週2〜7日。負荷の高い週が続きすぎないよう、回復週も自動で入ります。")}</p>
+              <p className="lead">{jp("1〜16週、週2〜7日。高負荷が続くと、回復週を自動で挟みます。")}</p>
             </div>
             <BlockPlanner
               notes={Object.fromEntries(Object.entries(PHASE_NOTE).map(([k, v]) => [k, jp(v)])) as Record<Phase, React.ReactNode>}
@@ -201,7 +201,7 @@ export default function TrainerPage() {
             </ul>
             <div className="board__foot">
               <a className="btn btn--card" href={START_URL}>無料で始める</a>
-              <p>{jp("表示価格は税込です。クレジットカードは不要で、4人目を追加するときに画面でプロプランをご案内します。")}</p>
+              <p>{jp("表示価格は税込です。クレジットカードは不要です。4人目を追加するときに、プロプランをご案内します。")}</p>
             </div>
           </div>
         </section>
@@ -258,13 +258,13 @@ const STACK = [
   {
     id: "make", verb: "作る", src: "/trainer/create.png", ratio: "860 / 1440", width: "400px",
     title: "条件を選べば、プログラムができる",
-    body: "対象・レベル・週数・日数・時間を選ぶと、種目と%1RMと回数まで組み上がります。白紙からも作れます。",
+    body: "対象・レベル・週数・日数・時間を選ぶと、種目・%1RM・回数まで組み上がります。白紙からも作れます。",
     alt: "新しいテンプレートの作成画面。Auxlogで作成と白紙から作成を選び、対象・レベル・週数・週の日数・時間・重点部位を指定する",
   },
   {
     id: "edit", verb: "直す", src: "/trainer/editor-ex.png", ratio: "1858 / 1670", width: "100%",
     title: "Dayごとにも、種目ごとにも直せる",
-    body: "1日分をまとめて組むDayごと表示と、同じ種目の全週を縦に並べて流れを見る種目ごと表示を切り替えられます。",
+    body: "1日分をまとめて組むなら、Dayごと表示。同じ種目の全週を並べて流れを見るなら、種目ごと表示。",
     alt: "プログラム編集画面の種目ごと表示。ローバースクワットのWeek 1とWeek 2のセット・%1RM・回数・RIRが縦に並ぶ",
   },
   {
@@ -276,7 +276,7 @@ const STACK = [
   {
     id: "watch", verb: "見守る", src: "/trainer/client.png", ratio: "2405 / 1800", width: "100%",
     title: "止まった人から、先に知らせる",
-    body: "記録が途切れた人、1RMが伸びていない種目を、契約者ごとにアラートで。",
+    body: "記録が途切れた人がいれば、すぐ分かります。1RMが伸びない種目も、アラートで。",
     alt: "クライアント一覧と詳細。推定1RMが更新されていないというアラート、プランの進み、自己ベストが表示されている",
   },
 ];
@@ -291,7 +291,7 @@ const FAQ: [string, React.ReactNode][] = [
   ["自分のトレーニングも記録できますか？", "はい。ご自身のアカウントはクライアントの人数に数えず、無料で使えます。"],
   ["クライアントに費用はかかりますか？", "かかりません。招待コードを入れて、無料で記録できます。"],
   ["作ったプログラムは編集できますか？", "できます。重量・回数・セット数、種目の入れ替えまで、週ごとにも全週まとめても直せます。"],
-  ["iPhoneアプリには対応していますか？", "はい。クライアントはiPhoneアプリのコーチングモードで、あなたのプランのまま記録できます。Web版でも記録できます。"],
+  ["iPhoneアプリには対応していますか？", "はい。iPhoneアプリのコーチングモードで、あなたのプランのまま記録できます。Web版でも記録できます。"],
   ["トレーナーが4名以上の店舗では？", <>
     <a className="link" href="mailto:auxlog.support@gmail.com">auxlog.support@gmail.com</a> までご相談ください。お見積もりします。
   </>],
