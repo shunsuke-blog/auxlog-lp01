@@ -163,7 +163,7 @@ export default function TrainerPage() {
               {PLANS.map((p) => (
                 <li key={p.name} className="plan">
                   <h3>{p.name}</h3>
-                  <p className="plan__price"><span className="plan__yen">{p.price}</span><span className="plan__unit">/ 月</span></p>
+                  <p className="plan__price"><span className="plan__yen">{p.price}</span><span className="plan__unit">{p.from ? "〜 / 月" : "/ 月"}</span></p>
                   <ul className="plan__list">
                     {p.items.map((i) => <li key={i}>{jp(i)}</li>)}
                   </ul>
@@ -235,10 +235,11 @@ const STACK = [
   },
 ];
 
-const PLANS = [
+// from: true は「〜」付き（ビジネスはトレーナー4名以上の店舗が個別見積もりのため）
+const PLANS: { name: string; price: string; from?: boolean; items: string[] }[] = [
   { name: "スターター", price: "¥0", items: ["クライアント3名まで", "ご自身のアカウントは枠外で無制限"] },
   { name: "プロ", price: "¥9,800", items: ["クライアント30名まで"] },
-  { name: "ビジネス", price: "¥19,800", items: ["クライアント無制限", "管理者・トレーナー3名まで", "チーム管理と優先サポート", "お申し込みはお問い合わせ制"] },
+  { name: "ビジネス", price: "¥19,800", from: true, items: ["クライアント無制限", "管理者・トレーナー3名まで", "チーム管理と優先サポート", "お申し込みはお問い合わせ制"] },
 ];
 
 const FAQ: [string, React.ReactNode][] = [
