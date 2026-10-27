@@ -170,6 +170,7 @@ export default function TrainerPage() {
               {PLANS.map((p) => (
                 <li key={p.name} className="plan">
                   <h3>{p.name}</h3>
+                  <p className="plan__for">{jp(p.for)}</p>
                   <p className="plan__price"><span className="plan__yen">{p.price}</span><span className="plan__unit">{p.from ? "〜 / 月" : "/ 月"}</span></p>
                   <ul className="plan__list">
                     {p.items.map((i) => <li key={i}>{jp(i)}</li>)}
@@ -254,11 +255,12 @@ const businessMailto = (subject: string) =>
 
 // from: true は「〜」付き（ビジネスはトレーナーの人数に応じて個別見積もりのため）
 // inquiry: true はお問い合わせ制（申し込み先のメールアドレスをプランの中に出す）
-const PLANS: { name: string; price: string; from?: boolean; inquiry?: boolean; items: string[] }[] = [
-  { name: "スターター", price: "¥0", items: ["クライアント3名まで", "ご自身のアカウントは枠外で無制限"] },
-  { name: "ベーシック", price: "¥2,980", items: ["クライアント10名まで"] },
-  { name: "プロ", price: "¥6,800", items: ["クライアント30名まで"] },
-  { name: "ビジネス", price: "¥19,800", from: true, inquiry: true, items: ["クライアント無制限", "トレーナーの人数に応じてお見積もり", "チーム管理と優先サポート"] },
+// for は「誰向けか」の一行（プラン名のすぐ下に出す）
+const PLANS: { name: string; for: string; price: string; from?: boolean; inquiry?: boolean; items: string[] }[] = [
+  { name: "スターター", for: "まずは試してみたい方に", price: "¥0", items: ["クライアント3名まで", "ご自身のアカウントは枠外で無制限"] },
+  { name: "ベーシック", for: "独立したばかりのトレーナーに", price: "¥2,980", items: ["クライアント10名まで"] },
+  { name: "プロ", for: "専業のパーソナルトレーナーに", price: "¥6,800", items: ["クライアント30名まで"] },
+  { name: "ビジネス", for: "ジムや店舗を経営する方に", price: "¥19,800", from: true, inquiry: true, items: ["クライアント無制限", "トレーナーの人数に応じてお見積もり", "チーム管理と優先サポート"] },
 ];
 
 const FAQ: [string, React.ReactNode][] = [

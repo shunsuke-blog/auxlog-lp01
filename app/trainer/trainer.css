@@ -172,17 +172,18 @@ body:has(> .tr) { background: var(--color-paper); color: var(--color-ink); }
 .board { padding-block: var(--section-gap-s); background: var(--color-board); color: var(--color-board-type); }
 .board .lead { color: var(--color-board-type); opacity: 0.8; }
 .board__head { display: grid; gap: var(--space-md); margin-bottom: var(--space-2xl); }
-/* 4プランは2×2（4列だと価格が数字の途中で折り返す） */
-.plans { list-style: none; margin: 0; padding: 0; display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); }
-.plan { display: grid; align-content: start; gap: var(--space-lg); padding: var(--space-lg) var(--space-xl) var(--space-lg); border-left: 1px solid color-mix(in oklab, var(--color-board-type) 22%, transparent); }
-.plan:nth-child(odd) { padding-left: 0; border-left: 0; }
-.plan:nth-child(n+3) { border-top: 1px solid color-mix(in oklab, var(--color-board-type) 22%, transparent); }
+/* 4プランを横一列に。区切りは縦の線だけにして、価格は4列に収まる大きさ（--text-section）に */
+.plans { list-style: none; margin: 0; padding: 0; display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); }
+/* プラン名・誰向け・価格・内容の行を、4プランで揃える（subgrid） */
+.plan { display: grid; grid-row: span 4; grid-template-rows: subgrid; align-content: start; gap: var(--space-lg); padding: var(--space-lg) var(--space-xl) var(--space-lg); border-left: 1px solid color-mix(in oklab, var(--color-board-type) 22%, transparent); }
+.plan:first-child { padding-left: 0; border-left: 0; }
 .plan h3 { font-size: var(--text-title); }
-.plan__price { display: flex; flex-wrap: wrap; align-items: baseline; gap: var(--space-xs); }
-.plan__yen { white-space: nowrap; font-size: var(--text-display); font-weight: 600; letter-spacing: -0.05em; line-height: 0.9; font-variant-numeric: tabular-nums; }
+.plan__for { margin-top: calc(var(--space-md) * -1); opacity: 0.8; }
+.plan__price { display: flex; align-items: baseline; gap: var(--space-xs); white-space: nowrap; }
+.plan__yen { white-space: nowrap; font-size: var(--text-section); font-weight: 600; letter-spacing: -0.05em; line-height: 0.9; font-variant-numeric: tabular-nums; }
 .plan__unit { font-size: var(--text-title); font-weight: 500; }
-.plan__list { list-style: none; margin: 0; padding: var(--space-md) 0 0; display: grid; gap: var(--space-xs); border-top: 1px solid color-mix(in oklab, var(--color-board-type) 22%, transparent); }
-.plan__inquiry { display: grid; gap: var(--space-2xs); margin-top: var(--space-xs); padding-top: var(--space-sm); border-top: 1px solid color-mix(in oklab, var(--color-board-type) 22%, transparent); }
+.plan__list { list-style: none; margin: 0; padding: 0; display: grid; align-content: start; gap: var(--space-xs); }
+.plan__inquiry { display: grid; gap: var(--space-2xs); margin-top: var(--space-sm); }
 .plan__inquiry .link { justify-self: start; }
 .board__foot { display: flex; flex-wrap: wrap; align-items: center; gap: var(--space-lg); margin-top: var(--space-2xl); padding-top: var(--space-xl); border-top: 1px solid color-mix(in oklab, var(--color-board-type) 22%, transparent); }
 .board__foot p { color: var(--color-board-type); opacity: 0.8; font-size: var(--text-sm); }
@@ -225,6 +226,11 @@ body:has(> .tr) { background: var(--color-paper); color: var(--color-ink); }
 .foot__links .link { white-space: nowrap; }
 .foot__legal { margin-top: var(--space-lg); font-size: var(--text-sm); color: var(--color-muted); }
 
+@media (max-width: 75rem) and (min-width: 60.01rem) {
+  .plans { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  .plan:nth-child(odd) { padding-left: 0; border-left: 0; }
+  .plan:nth-child(n+3) { margin-top: var(--space-2xl); }
+}
 @media (max-width: 60rem) {
   .hero h1, .hero__side { grid-column: 1 / -1; }
   .nav__links .hide-s { display: none; }
