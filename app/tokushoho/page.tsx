@@ -26,7 +26,8 @@ const ITEMS: { label: string; value: ReactNode }[] = [
       <>
         <dl className="legal__prices">
           <div><dt>スターター</dt><dd>0円</dd></div>
-          <div><dt>プロ</dt><dd>9,800円 / 月</dd></div>
+          <div><dt>ベーシック</dt><dd>2,980円 / 月</dd></div>
+          <div><dt>プロ</dt><dd>6,800円 / 月</dd></div>
           <div><dt>ビジネス</dt><dd>19,800円〜 / 月</dd></div>
         </dl>
         {jp("表示価格はすべて税込です。ビジネスプランはお問い合わせのうえ、お申し込みのご案内をお送りします。料金は、トレーナーの人数に応じて個別にお見積もりします。")}

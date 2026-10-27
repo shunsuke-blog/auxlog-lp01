@@ -18,11 +18,11 @@ const APP_STORE_URL = "https://apps.apple.com/jp/app/auxlog/id6790152534";
 export const metadata: Metadata = {
   title: "Auxlog for トレーナー - エクセルとLINEの往復を、終わらせる。",
   description:
-    "パーソナルトレーナーのためのメニュー作成とクライアント管理。週数に合わせて期分けまでプログラムを自動で作成し、招待コードでクライアントへ。クライアント3名まで無料。",
+    "エクセルへの入力とLINEでの共有にかかる時間を減らす、パーソナルトレーナーのためのツール。週数に合わせて期分けまでプログラムを自動で作成し、招待コードでクライアントへ。クライアント3名まで無料。",
   openGraph: {
     title: "Auxlog for トレーナー - エクセルとLINEの往復を、終わらせる。",
     description:
-      "パーソナルトレーナーのためのメニュー作成とクライアント管理。クライアント3名まで無料、クレジットカード不要。",
+      "エクセルへの入力とLINEでの共有にかかる時間を減らす、パーソナルトレーナーのためのツール。クライアント3名まで無料、クレジットカード不要。",
     url: "https://auxlog.com/trainer",
     siteName: "Auxlog",
     locale: "ja_JP",
@@ -42,7 +42,7 @@ export default function TrainerPage() {
           <div className="container grid hero__grid">
             <h1>{jp("エクセルとLINEの往復を、終わらせる。")}</h1>
             <div className="hero__side">
-              <p className="lead">{jp("トレーナーのための、メニュー作成とクライアント管理。")}</p>
+              <p className="lead">{jp("メニューを作る、送る、進みを確かめる。エクセルとLINEでかけていた時間を、短くします。")}</p>
               <div className="hero__actions">
                 <a className="btn btn--ink" href={START_URL}>トレーナーとして始める</a>
                 <a className="btn btn--card" href="#screens">画面を見る</a>
@@ -65,7 +65,7 @@ export default function TrainerPage() {
 
         <section className="compare" aria-labelledby="compare-h">
           <div className="container">
-            <h2 id="compare-h">{jp("エクセルとLINEでやっていたこと")}</h2>
+            <h2 id="compare-h">{jp("エクセルとLINEで、時間がかかっていたこと")}</h2>
             <table className="compare__table">
               <thead>
                 <tr>
@@ -91,7 +91,7 @@ export default function TrainerPage() {
           <div className="container grid stack__grid">
             <div className="stack__pane">
               <h2 id="stack-h">作る、直す、見守る。</h2>
-              <p className="lead">{jp("トレーナーの仕事が、そのまま画面になっています。")}</p>
+              <p className="lead">{jp("電卓と書き写しの作業は、画面が引き受けます。")}</p>
               <ol className="stack__index">
                 {STACK.map((s) => (
                   <li key={s.id}><a className="link" href={`#${s.id}`}>{s.verb}</a></li>
@@ -178,7 +178,7 @@ export default function TrainerPage() {
             </ul>
             <div className="board__foot">
               <a className="btn btn--card" href={START_URL}>無料で始める</a>
-              <p>{jp("表示価格は税込です。クレジットカードは不要です。4人目のクライアントを招待するときに、プロプランをご案内します。")}</p>
+              <p>{jp("表示価格は税込です。クレジットカードは不要です。4人目のクライアントを招待するときに、ベーシックプランをご案内します。")}</p>
             </div>
           </div>
         </section>
@@ -249,7 +249,8 @@ const businessMailto = (subject: string) =>
 // inquiry: true はお問い合わせ制（申し込み先のメールアドレスをプランの中に出す）
 const PLANS: { name: string; price: string; from?: boolean; inquiry?: boolean; items: string[] }[] = [
   { name: "スターター", price: "¥0", items: ["クライアント3名まで", "ご自身のアカウントは枠外で無制限"] },
-  { name: "プロ", price: "¥9,800", items: ["クライアント30名まで"] },
+  { name: "ベーシック", price: "¥2,980", items: ["クライアント10名まで"] },
+  { name: "プロ", price: "¥6,800", items: ["クライアント30名まで"] },
   { name: "ビジネス", price: "¥19,800", from: true, inquiry: true, items: ["クライアント無制限", "トレーナーの人数に応じてお見積もり", "チーム管理と優先サポート"] },
 ];
 
