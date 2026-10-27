@@ -28,6 +28,13 @@ export const metadata: Metadata = {
     locale: "ja_JP",
     type: "website",
   },
+  // 指定しないとルートの layout（トレーニー向けLP）の内容が X のカードに出る
+  twitter: {
+    card: "summary",
+    title: "Auxlog for トレーナー - エクセルとLINEの往復を、終わらせる。",
+    description:
+      "エクセルへの入力とLINEでの共有にかかる時間を減らす、パーソナルトレーナーのためのツール。クライアント3名まで無料、クレジットカード不要。",
+  },
 };
 
 export default function TrainerPage() {

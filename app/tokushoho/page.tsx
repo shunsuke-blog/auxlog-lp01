@@ -11,6 +11,20 @@ import "../trainer/trainer.css";
 export const metadata: Metadata = {
   title: "特定商取引法に基づく表記 | Auxlog for トレーナー",
   description: "Auxlog for トレーナーの特定商取引法に基づく表記です。",
+  // openGraph・twitter はルートの layout（トレーニー向けLP）のものが残るので、ここで上書きする
+  openGraph: {
+    title: "特定商取引法に基づく表記 | Auxlog for トレーナー",
+    description: "Auxlog for トレーナーの特定商取引法に基づく表記です。",
+    url: "https://auxlog.com/tokushoho",
+    siteName: "Auxlog",
+    locale: "ja_JP",
+    type: "website",
+  },
+  twitter: {
+    card: "summary",
+    title: "特定商取引法に基づく表記 | Auxlog for トレーナー",
+    description: "Auxlog for トレーナーの特定商取引法に基づく表記です。",
+  },
 };
 
 const DISCLOSE = "ご請求があった場合、遅滞なく開示します。";
