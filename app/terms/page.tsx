@@ -12,7 +12,7 @@ export default function TermsPage() {
       <Nav />
       <main className="max-w-3xl mx-auto px-6 pt-32 pb-24">
         <h1 className="text-4xl font-black mb-8">利用規約</h1>
-        <p className="text-text-sub text-sm mb-12">最終更新日：2026年7月</p>
+        <p className="text-text-sub text-sm mb-12">最終更新日：2026年11月</p>
 
         <div className="flex flex-col gap-10 text-sm leading-relaxed">
           <section>
@@ -77,7 +77,7 @@ export default function TermsPage() {
           <section>
             <h2 className="text-xl font-bold mb-3">9. 運営者</h2>
             <p className="text-text-sub">
-              個人開発者：吉田 峻佑
+              Auxlog
               <br />
               連絡先：
               <a

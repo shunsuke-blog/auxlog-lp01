@@ -31,7 +31,7 @@ const DISCLOSE = "ご請求があった場合、遅滞なく開示します。";
 
 const ITEMS: { label: string; value: ReactNode }[] = [
   { label: "屋号", value: "Auxlog" },
-  { label: "販売業者", value: "吉田 峻佑" },
+  { label: "販売業者", value: jp(DISCLOSE) },
   { label: "所在地", value: jp(DISCLOSE) },
   { label: "電話番号", value: jp(DISCLOSE) },
   { label: "メールアドレス", value: <a className="link" href={`mailto:${CONTACT_EMAIL}`}>{CONTACT_EMAIL}</a> },
@@ -68,7 +68,7 @@ export default function TokushohoPage() {
         <div className="container grid legal__grid">
           <div className="legal__head">
             <h1>{jp("特定商取引法に基づく表記")}</h1>
-            <p className="legal__date">最終更新日：<time dateTime="2026-10-30">2026年10月30日</time></p>
+            <p className="legal__date">最終更新日：<time dateTime="2026-11-09">2026年11月9日</time></p>
           </div>
           <dl className="legal__rows">
             {ITEMS.map((item) => (
