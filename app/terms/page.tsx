@@ -77,7 +77,7 @@ export default function TermsPage() {
           <section>
             <h2 className="text-xl font-bold mb-3">9. 運営者</h2>
             <p className="text-text-sub">
-              Auxlog
+              個人開発者：吉田 峻佑
               <br />
               連絡先：
               <a
