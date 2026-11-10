@@ -233,10 +233,14 @@ body:has(> .tr) { background: var(--color-paper); color: var(--color-ink); }
 .zoom__open:focus-visible { outline: 2px solid var(--color-focus); outline-offset: 2px; }
 .zoom { inset: 0; width: 100%; max-width: none; height: 100%; max-height: none; margin: 0; padding: 0; border: 0; background: var(--color-desk); color: var(--color-ink); }
 .zoom::backdrop { background: color-mix(in oklab, var(--color-ink) 40%, transparent); }
-.zoom[open] { display: grid; grid-template-rows: auto minmax(0, 1fr); }
-.zoom__bar { display: flex; align-items: center; justify-content: flex-end; gap: var(--space-md); padding: var(--space-sm) var(--space-md); box-shadow: var(--cast-stock-lift); }
-.zoom__hint { margin: 0 auto 0 0; font-size: var(--text-sm); color: var(--color-muted); }
-.zoom__body { overflow: auto; overscroll-behavior: contain; padding: var(--space-lg) var(--space-md); display: grid; justify-content: safe center; align-content: start; }
+.zoom[open] { display: grid; }
+.zoom:focus { outline: none; }
+/* 縮小ボタンは拡大ボタンと同じ見た目・同じ位置（画像の右下）。画像がはみ出すときは見えている範囲の右下に留まる */
+.zoom__frame { display: grid; }
+.zoom__frame > * { grid-area: 1 / 1; }
+.zoom__close { position: sticky; right: var(--space-sm); bottom: var(--space-sm); align-self: end; justify-self: end; margin: var(--space-sm); cursor: zoom-out; }
+.zoom__hint { margin: 0 0 var(--space-sm); font-size: var(--text-sm); color: var(--color-muted); }
+.zoom__body { min-height: 0; overflow: auto; overscroll-behavior: contain; padding: var(--space-lg) var(--space-md); display: grid; justify-content: safe center; align-content: start; }
 .zoom__body img { display: block; max-width: none; height: auto; border-radius: var(--radius-card); box-shadow: var(--edge-stock), var(--cast-stock); }
 html:has(.zoom[open]) { overflow: hidden; }
 @media (max-width: 75rem) and (min-width: 60.01rem) {
