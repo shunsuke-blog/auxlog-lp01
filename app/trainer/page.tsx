@@ -7,6 +7,7 @@ import { PHASE_NOTE, SCREENS, type Phase } from "./content";
 import EditViews from "./EditViews";
 import { trainerFontClass } from "./fonts";
 import { jp } from "./phrase";
+import Zoom from "./Zoom";
 import "./trainer.css";
 
 // トレーナー向けLP（2026-10-25）。トレーニー向けの app/page.tsx とは別ページ・別デザイン（Hallmark / Coral テーマ、アクセントはWeb版と同じティール）。
@@ -64,6 +65,7 @@ export default function TrainerPage() {
             <figure className="shot">
               <div className="shot__frame showcase__frame" data-slot="dashboard" data-kind="product" data-alt="トレーナーのダッシュボード（契約中・今週の進み・ToDo・アラート）">
                 <Image src="/trainer/dashboard.png" alt="Auxlogのトレーナー用ダッシュボード。対応すること（アラートとToDo）、契約中の人数や1RM更新件数、最近のアクティビティ、今週の進捗が並ぶ" fill sizes="(min-width: 90rem) 1312px, 100vw" fetchPriority="high" loading="eager" unoptimized />
+                <Zoom src="/trainer/dashboard.png" alt="トレーナーのダッシュボード" width={1423} />
               </div>
               <figcaption>{jp("ログインして最初に開く画面。今週の進み、次にやること、止まっている人がここに集まります。")}</figcaption>
             </figure>
@@ -111,6 +113,7 @@ export default function TrainerPage() {
                   {s.id === "edit" ? <EditViews /> : (
                     <div className="shot__frame" data-slot={s.id} data-kind="product" data-alt={s.alt} style={{ aspectRatio: s.ratio }}>
                       <Image src={s.src} alt={s.alt} fill sizes="(min-width: 60rem) 56vw, 100vw" unoptimized />
+                      <Zoom src={s.src} alt={s.alt} width={s.zoom} />
                     </div>
                   )}
                   <figcaption>
@@ -223,25 +226,25 @@ const COMPARE: [string, string, string][] = [
 
 const STACK = [
   {
-    id: "make", verb: "作る", src: "/trainer/create.png", ratio: "860 / 1440", width: "400px",
+    id: "make", verb: "作る", src: "/trainer/create.png", ratio: "860 / 1440", width: "400px", zoom: 430,
     title: "条件を選べば、プログラムができる",
     body: "対象・レベル・週数・日数・時間を選ぶと、種目・%1RM・回数まで組み上がります。白紙からも作れます。",
     alt: "新しいテンプレートの作成画面。Auxlogで作成と白紙から作成を選び、対象・レベル・週数・週の日数・時間・重点部位を指定する",
   },
   {
-    id: "edit", verb: "直す", src: "/trainer/editor-ex.png", ratio: "1858 / 1670", width: "100%",
+    id: "edit", verb: "直す", src: "/trainer/editor-ex.png", ratio: "1858 / 1670", width: "100%", zoom: 1377,
     title: "Dayごとにも、種目ごとにも直せる",
     body: "1日分をまとめて組むなら、Dayごと表示。同じ種目の全週を並べて流れを見るなら、種目ごと表示。",
     alt: "プログラム編集画面の種目ごと表示。ローバースクワットのWeek 1とWeek 2のセット・%1RM・回数・RIRが縦に並ぶ",
   },
   {
-    id: "swap", verb: "入れ替える", src: "/trainer/swap.png", ratio: "1110 / 1520", width: "440px",
+    id: "swap", verb: "入れ替える", src: "/trainer/swap.png", ratio: "1110 / 1520", width: "440px", zoom: 555,
     title: "入れ替えても、組み立ては崩れない",
     body: "全週まとめて、またはその週だけ。セット・回数・コメントはそのまま残ります。",
     alt: "種目の入れ替え画面。全週のDay 1かこの週だけかを選び、同じ動きの種目と同じ部位の種目から選ぶ",
   },
   {
-    id: "watch", verb: "見守る", src: "/trainer/client.png", ratio: "2753 / 1797", width: "100%",
+    id: "watch", verb: "見守る", src: "/trainer/client.png", ratio: "2753 / 1797", width: "100%", zoom: 1377,
     title: "止まった人から、先に知らせる",
     body: "記録が途切れた人がいれば、すぐ分かります。1RMが伸びない種目も、アラートで。",
     alt: "クライアント一覧と詳細。推定1RMが更新されていないというアラート、プランの進み、自己ベストが表示されている",

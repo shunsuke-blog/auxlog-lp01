@@ -2,6 +2,7 @@
 
 import Image from "next/image";
 import { useId, useState } from "react";
+import Zoom from "./Zoom";
 
 // 編集画面の「Dayごと／種目ごと」をアプリと同じく切り替えて見せる。スクリプトが無くても最初の表示（Dayごと）は出る。
 
@@ -66,6 +67,7 @@ export default function EditViews() {
           style={{ aspectRatio: "2753 / 1797" }}
         >
           <Image src={v.src} alt={v.alt} fill sizes="(min-width: 60rem) 56vw, 100vw" unoptimized />
+          <Zoom src={v.src} alt={v.alt} width={1377} />
         </div>
       ))}
     </div>

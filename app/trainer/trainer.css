@@ -226,6 +226,19 @@ body:has(> .tr) { background: var(--color-paper); color: var(--color-ink); }
 .foot__links .link { white-space: nowrap; }
 .foot__legal { margin-top: var(--space-lg); font-size: var(--text-sm); color: var(--color-muted); }
 
+/* 画面を拡大：キャプチャの右下に置くボタンと、原寸に近い大きさで開く全画面ダイアログ */
+.zoom__open { position: absolute; right: var(--space-sm); bottom: var(--space-sm); z-index: var(--z-raised); min-height: 40px; padding: 0 var(--space-md); border: 0; border-radius: var(--radius-pill); background-color: var(--color-cotton); color: var(--color-print); font: 500 var(--text-sm)/1 var(--font-body); white-space: nowrap; cursor: zoom-in; box-shadow: var(--edge-stock), var(--cast-stock); transition: transform var(--dur-short) var(--ease-out); }
+.zoom__open:hover { transform: translateY(-1px); }
+.zoom__open:active { transform: translateY(0); }
+.zoom__open:focus-visible { outline: 2px solid var(--color-focus); outline-offset: 2px; }
+.zoom { inset: 0; width: 100%; max-width: none; height: 100%; max-height: none; margin: 0; padding: 0; border: 0; background: var(--color-desk); color: var(--color-ink); }
+.zoom::backdrop { background: color-mix(in oklab, var(--color-ink) 40%, transparent); }
+.zoom[open] { display: grid; grid-template-rows: auto minmax(0, 1fr); }
+.zoom__bar { display: flex; align-items: center; justify-content: flex-end; gap: var(--space-md); padding: var(--space-sm) var(--space-md); box-shadow: var(--cast-stock-lift); }
+.zoom__hint { margin: 0 auto 0 0; font-size: var(--text-sm); color: var(--color-muted); }
+.zoom__body { overflow: auto; overscroll-behavior: contain; padding: var(--space-lg) var(--space-md); display: grid; justify-content: safe center; align-content: start; }
+.zoom__body img { display: block; max-width: none; height: auto; border-radius: var(--radius-card); box-shadow: var(--edge-stock), var(--cast-stock); }
+html:has(.zoom[open]) { overflow: hidden; }
 @media (max-width: 75rem) and (min-width: 60.01rem) {
   .plans { grid-template-columns: repeat(2, minmax(0, 1fr)); }
   .plan:nth-child(odd) { padding-left: 0; border-left: 0; }
@@ -274,6 +287,6 @@ body:has(> .tr) { background: var(--color-paper); color: var(--color-ink); }
   .rail { grid-auto-columns: 220px; gap: var(--space-md); }
 }
 @media (prefers-reduced-motion: reduce) {
-  .btn, .link, .groove__tab, .dots__dot::before { transition: none; }
-  .btn:hover, .btn:active { transform: none; }
+  .btn, .link, .groove__tab, .dots__dot::before, .zoom__open { transition: none; }
+  .btn:hover, .btn:active, .zoom__open:hover { transform: none; }
 }

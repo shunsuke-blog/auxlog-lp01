@@ -3,6 +3,7 @@
 import Image from "next/image";
 import { useCallback, useEffect, useRef, useState, type ReactNode } from "react";
 import { SCREENS } from "./content";
+import Zoom from "./Zoom";
 
 // クライアント側（Web版をスマホ幅で撮影）の画面を横に並べるレール。自動では動かさない。
 // スワイプ・ホイール・矢印キーで動く。下のドットは「止まれる位置」の数だけ出し、押すとその位置へ送る。
@@ -60,6 +61,7 @@ export default function ClientRail({ captions }: { captions: ReactNode[] }) {
             <figure className="shot">
               <div className="shot__frame rail__frame" data-slot={s.src.split("/").pop()?.replace(".png", "")} data-kind="product" data-alt={s.alt}>
                 <Image src={s.src} alt={s.alt} fill sizes="280px" unoptimized />
+                <Zoom src={s.src} alt={s.alt} width={390} />
               </div>
               <figcaption>{captions[i] ?? s.caption}</figcaption>
             </figure>
