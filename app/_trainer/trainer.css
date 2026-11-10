@@ -91,8 +91,15 @@ body:has(> .tr) { background: var(--color-paper); color: var(--color-ink); }
 .stack__index { list-style: none; margin: var(--space-md) 0 0; padding: 0; counter-reset: step; display: grid; gap: var(--space-xs); font-size: var(--text-lg); font-weight: 500; }
 .stack__index li { counter-increment: step; display: flex; gap: var(--space-sm); align-items: baseline; }
 .stack__index li::before { content: counter(step); font-size: var(--text-sm); color: var(--color-muted); font-variant-numeric: tabular-nums; min-width: 1.2em; }
-.stack__index .link { text-decoration-color: transparent; }
+.stack__index li, .stack__index li::before { transition: color var(--dur-short) var(--ease-out); }
+.stack__index .link { color: inherit; text-decoration-color: transparent; }
 .stack__index .link:hover { text-decoration-color: var(--color-accent); }
+/* いま読んでいる項目：ほかを薄くし、番号をティールに */
+.stack__index:has([aria-current]) li { color: var(--color-muted); }
+.stack__index li[aria-current] { color: var(--color-ink); }
+.stack__index li[aria-current]::before { color: var(--color-accent); }
+/* 各説明の見出しの上に出す「2 · 直す」 */
+.stack__step { font-size: var(--text-sm); font-weight: 500; color: var(--color-accent-2); font-variant-numeric: tabular-nums; }
 .stack__shots { grid-column: 6 / span 7; display: grid; gap: var(--space-3xl); }
 .stack__item figcaption { display: grid; gap: var(--space-xs); margin-top: var(--space-lg); max-width: none; color: var(--color-ink); font-size: var(--text-md); }
 .stack__item figcaption p { color: var(--color-ink-2); max-width: 30em; }
@@ -291,6 +298,6 @@ html:has(.zoom[open]) { overflow: hidden; }
   .rail { grid-auto-columns: 220px; gap: var(--space-md); }
 }
 @media (prefers-reduced-motion: reduce) {
-  .btn, .link, .groove__tab, .dots__dot::before, .zoom__open { transition: none; }
+  .btn, .link, .groove__tab, .dots__dot::before, .zoom__open, .stack__index li, .stack__index li::before { transition: none; }
   .btn:hover, .btn:active, .zoom__open:hover { transform: none; }
 }

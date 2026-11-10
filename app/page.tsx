@@ -7,6 +7,7 @@ import { PHASE_NOTE, SCREENS, type Phase } from "./_trainer/content";
 import EditViews from "./_trainer/EditViews";
 import { trainerFontClass } from "./_trainer/fonts";
 import { jp } from "./_trainer/phrase";
+import StackIndex from "./_trainer/StackIndex";
 import Zoom from "./_trainer/Zoom";
 import "./_trainer/trainer.css";
 
@@ -101,16 +102,12 @@ export default function TrainerPage() {
         <section className="stack" aria-labelledby="stack-h">
           <div className="container grid stack__grid">
             <div className="stack__pane">
-              <h2 id="stack-h">作る、直す、見守る。</h2>
+              <h2 id="stack-h">{jp("作る、直す、見守る。")}</h2>
               <p className="lead">{jp("電卓と書き写しの作業は、画面が引き受けます。")}</p>
-              <ol className="stack__index">
-                {STACK.map((s) => (
-                  <li key={s.id}><a className="link" href={`#${s.id}`}>{s.verb}</a></li>
-                ))}
-              </ol>
+              <StackIndex steps={STACK.map(({ id, verb }) => ({ id, verb }))} />
             </div>
             <div className="stack__shots">
-              {STACK.map((s) => (
+              {STACK.map((s, i) => (
                 <figure className={`shot stack__item${s.width.endsWith("px") ? " stack__item--portrait" : ""}`} id={s.id} key={s.id} style={s.width.endsWith("px") ? ({ "--frame-w": s.width } as React.CSSProperties) : undefined}>
                   {s.id === "edit" ? <EditViews /> : (
                     <div className="shot__frame" data-slot={s.id} data-kind="product" data-alt={s.alt} style={{ aspectRatio: s.ratio }}>
@@ -119,6 +116,8 @@ export default function TrainerPage() {
                     </div>
                   )}
                   <figcaption>
+                    {/* 左の目次と同じ番号と動詞。どの項目の説明かを見出しの上に出す */}
+                    <span className="stack__step">{i + 1} · {s.verb}</span>
                     <h3>{jp(s.title)}</h3>
                     <p>{jp(s.body)}</p>
                   </figcaption>
