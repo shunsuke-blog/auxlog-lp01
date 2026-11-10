@@ -1,17 +1,17 @@
 import type { Metadata } from "next";
 import type { ReactNode } from "react";
-import { CONTACT_EMAIL, TrainerFooter, TrainerNav } from "../trainer/Chrome";
-import { trainerFontClass } from "../trainer/fonts";
-import { jp } from "../trainer/phrase";
-import "../trainer/trainer.css";
+import { CONTACT_EMAIL, TrainerFooter, TrainerNav } from "../_trainer/Chrome";
+import { trainerFontClass } from "../_trainer/fonts";
+import { jp } from "../_trainer/phrase";
+import "../_trainer/trainer.css";
 
 // 特定商取引法に基づく表記（2026-10-26 改訂）。有料プランはトレーナー向けだけになったので、
-// トレーナー向けLP（/trainer）と同じデザイン・料金体系に合わせた。トレーニー（クライアント）の利用は無料。
+// トレーナー向けLP（トップ）と同じデザイン・料金体系に合わせた。トレーニー（クライアント）の利用は無料。
 
 export const metadata: Metadata = {
   title: "特定商取引法に基づく表記 | Auxlog for トレーナー",
   description: "Auxlog for トレーナーの特定商取引法に基づく表記です。",
-  // openGraph・twitter はルートの layout（トレーニー向けLP）のものが残るので、ここで上書きする
+  // openGraph・twitter はルートの layout（トップのLP）のものが残るので、ここで上書きする
   openGraph: {
     title: "特定商取引法に基づく表記 | Auxlog for トレーナー",
     description: "Auxlog for トレーナーの特定商取引法に基づく表記です。",

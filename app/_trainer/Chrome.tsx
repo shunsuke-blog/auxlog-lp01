@@ -1,6 +1,6 @@
 import { jp } from "./phrase";
 
-// トレーナー向けのページ（/trainer と特定商取引法の表記）で共通のナビとフッター。
+// トレーナー向けのページ（トップのLPと特定商取引法の表記）で共通のナビとフッター。
 // 他ルートへのリンクは next/link ではなく <a>（フル遷移）にして、このCSS（:root のトークン）を他のページに持ち込まない。
 
 export const START_URL = "https://auxlog.app/trainer/start";
@@ -10,11 +10,13 @@ export function TrainerNav() {
   return (
     <header className="nav">
       <div className="container nav__bar">
-        <a className="wordmark" href="/trainer" aria-label="Auxlog トレーナー向け トップ">
+        {/* eslint-disable-next-line @next/next/no-html-link-for-pages */}
+        <a className="wordmark" href="/" aria-label="Auxlog トレーナー向け トップ">
           Auxlog<small>for トレーナー</small>
         </a>
         <nav className="nav__links" aria-label="メイン">
-          <a className="link hide-s" href="/trainer#pricing">料金</a>
+          {/* eslint-disable-next-line @next/next/no-html-link-for-pages */}
+          <a className="link hide-s" href="/#pricing">料金</a>
           <a className="link" href="https://auxlog.app/login?next=/trainer">ログイン</a>
           <a className="btn btn--card" href={START_URL}>トレーナーとして始める</a>
         </nav>
@@ -33,8 +35,6 @@ export function TrainerFooter() {
         </div>
         <p className="foot__mark" aria-hidden="true">Auxlog</p>
         <nav className="foot__links" aria-label="フッター">
-          {/* eslint-disable-next-line @next/next/no-html-link-for-pages */}
-          <a className="link" href="/">トレーニー向けアプリ</a>
           <a className="link" href="/terms">利用規約</a>
           <a className="link" href="/privacy">プライバシーポリシー</a>
           <a className="link" href="/tokushoho">特定商取引法に基づく表記</a>
