@@ -6,6 +6,8 @@ import "./globals.css";
 const inter = Inter({ subsets: ["latin"] });
 
 export const metadata: Metadata = {
+  // 相対URL（canonical など）の基準。www.auxlog.com からも auxlog.com に転送しているので、正規の住所はこちら
+  metadataBase: new URL("https://auxlog.com"),
   // サイト全体の既定値。トップはトレーナー向けLP（app/page.tsx で上書き）。
   title: "Auxlog for トレーナー",
   description:

@@ -21,6 +21,8 @@ export const metadata: Metadata = {
   title: "Auxlog for トレーナー - エクセルとLINEの往復を、終わらせる。",
   description:
     "エクセルへの入力とLINEでの共有にかかる時間を減らす、パーソナルトレーナーのためのツール。週数に合わせて期分けまでプログラムを自動で作成し、招待コードでクライアントへ。クライアント3名まで無料。",
+  // 検索エンジンに正規のURLを伝える（www.auxlog.com や旧 /trainer ではなく、ここ）
+  alternates: { canonical: "/" },
   openGraph: {
     title: "Auxlog for トレーナー - エクセルとLINEの往復を、終わらせる。",
     description:

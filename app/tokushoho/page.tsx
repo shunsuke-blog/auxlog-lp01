@@ -11,6 +11,7 @@ import "../_trainer/trainer.css";
 export const metadata: Metadata = {
   title: "特定商取引法に基づく表記 | Auxlog for トレーナー",
   description: "Auxlog for トレーナーの特定商取引法に基づく表記です。",
+  alternates: { canonical: "/tokushoho" },
   // openGraph・twitter はルートの layout（トップのLP）のものが残るので、ここで上書きする
   openGraph: {
     title: "特定商取引法に基づく表記 | Auxlog for トレーナー",
